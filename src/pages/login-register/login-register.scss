@@ -1,0 +1,54 @@
+page-login-register {
+    .login-background {
+        background-color: #8fcff4;
+    }
+
+    .item-ios.item-block .item-inner {
+        padding-right: 8px;
+        border-bottom: 0px solid #e0dfe4;
+    }
+
+    .nav-bar {
+        background-color: #8fcff4;
+        position: relative;
+        top: 5%;
+    }
+
+    .content-background {
+        background-color: #8fcff4;
+        position: relative;
+        top: 10%;
+    }
+
+    .register-login-btn {
+        position: relative;
+        top: 8%;
+    }
+
+    .login-register-btn {
+        position: relative;
+        top: 6%;
+    }
+
+    element.style {
+        box-shadow: 0 1px 0 0 #ffffff;
+    }
+
+
+    element.style {
+        box-shadow: 0 1px 0 0 #ffffff;
+    }
+
+    .login-button {
+        height: 42px;
+        font-family: 'Raleway';
+        font-weight: 200;
+        color: #000000;
+        font-size: 20px;
+        background-color: #FFFFFF;
+        border: 0px solid #FFFFFF;
+        margin: 20px 15%;
+        position: relative;
+        top: 2%;
+      }
+}

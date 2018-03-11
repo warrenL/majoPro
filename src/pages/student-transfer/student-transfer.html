@@ -1,0 +1,65 @@
+<!--
+  student transfer page header html
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title class="text-center">
+      <div class="student-transfer-header">
+        <img src="assets/twoways.png">
+        Transfer Student
+      </div>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--
+  student transfer page content html
+-->
+<ion-content padding="false">
+  <ion-row class="student-transfer-content-header">
+    <ion-col class="text-center">
+      {{item}}
+    </ion-col>
+  </ion-row>
+  <ion-row class="student-transfer-title-row">
+    <ion-col class="student-transfer-group-col">
+      Group/Class
+    </ion-col>
+    <ion-col class="student-transfer-date-col">
+      Effective Date
+    </ion-col>
+  </ion-row>
+  <ion-item (click)="originalStatu()">
+    <ion-row>
+      <ion-col>
+        {{currentTitle}}
+      </ion-col>
+      <ion-col class="student-transfer-current-col">
+        {{currentDate}}
+      </ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-scroll   class='list-scroll'  scrollY="true" no-padding>
+    <ion-list class="student-transfer-list">
+      <button *ngFor="let selectItem of groupClass" (click)="transformStudent($event, selectItem)" ion-item detail-none no-lines>
+        <ion-row>
+          <ion-col>
+            {{selectItem}}
+          </ion-col>
+          <ion-col class="student-transfer-list-date-col">
+            {{timeStatus.get(selectItem)}}
+          </ion-col>
+          <ion-icon *ngIf="status.get(selectItem) == 'selected'" name="radio-button-on" class="student-transfer-list-icon"></ion-icon>
+          <ion-icon *ngIf="status.get(selectItem) == ''" name="radio-button-off" class="student-transfer-list-select-icon"></ion-icon>
+        </ion-row>
+      </button>
+    </ion-list>
+  </ion-scroll>  
+    <button class="student-transfer-save-btn" color="secondary"  (click)="Save()" ion-button>SAVE</button>
+</ion-content>
+
+<!--
+  contact information page footer html
+-->
+
+ 

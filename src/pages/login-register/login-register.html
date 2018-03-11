@@ -1,0 +1,109 @@
+<ion-content class="login-background">
+    <ion-item class="nav-bar" no-line item-clear>
+        <ion-icon name="arrow-round-back" color="white" style="padding-left: 3rem;font-size: 5rem;" item-start (click)="back($event)" tappable></ion-icon>
+    </ion-item>
+    <ion-row class="login-register-btn">
+      <ion-col></ion-col>
+      <ion-col>
+      <ion-segment [(ngModel)]="authentication" (ionChange)="segmentChanged($event)">
+        <ion-segment-button value="登录">
+            登录
+        </ion-segment-button>
+        <ion-segment-button value="注册">
+            注册
+        </ion-segment-button>
+      </ion-segment>
+      </ion-col>
+      <ion-col></ion-col>
+    </ion-row>
+    <ion-content (swipe)="swipeEvnet($event)" class="content-background">  
+        <ion-row [ngSwitch]="authentication">  
+          <ion-row *ngSwitchCase="'登录'">
+            <ion-item no-lines no-padding class="login-background">
+                <ion-label class="label label-md" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
+                    <!-- <img item-start width="33" height="33" src="assets/login/username.png"> -->
+                    <ion-icon name="phone-portrait"></ion-icon>
+                    手机号
+                </ion-label>
+            </ion-item>
+            <ion-item no-lines no-padding class="login-background">
+                <ion-input placeholder="请输入手机号" [(ngModel)]="username" class="login-background" style="padding-left:15%;padding-right:15%;"></ion-input>
+            </ion-item>
+            <ion-item no-lines no-padding class="login-background">
+                <!-- <img width="33" height="33" src="assets/login/password.png" item-start> -->
+                <ion-label class="label label-md" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
+                    <ion-icon name="lock"></ion-icon>
+                    密码
+                </ion-label>
+            </ion-item>
+            <ion-item no-lines no-padding class="login-background">
+                <ion-input  placeholder="请输入密码" [(ngModel)]="password" class="login-background" style="padding-left:15%;padding-right:15%;"></ion-input>
+            </ion-item>
+            <!-- <ion-item no-lines no-padding class="login-background"> -->
+            <ion-row>
+                <ion-col>
+                    <ion-item no-lines no-padding class="login-background" > 
+                        <ion-checkbox [(ngModel)]="cucumber" (ionChange)="updateCucumber()" class="label label-md" style="padding-left:15%;color:white;font-size:1rem;"></ion-checkbox>
+                        <ion-label class="label label-md" style="color:white;font-size:1.5rem;">记住密码</ion-label>
+                    </ion-item>
+                </ion-col>
+                <!-- </ion-item> -->
+                <ion-col>
+                    <ion-item no-lines no-padding class="login-background"> 
+                        <ion-label tappable (click)="findPassword($event)"><a style="padding-left:15%;color:yellow;font-size:1.5rem;">忘记密码？</a></ion-label>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <button (click)="login($event)" class="login-button" ion-button round full>确定</button>
+          </ion-row>  
+          <ion-row *ngSwitchCase="'注册'">  
+            <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
+                <ion-icon name="md-person" item-start></ion-icon>
+                <ion-input placeholder="请输入姓名"></ion-input>
+            </ion-item>
+            <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
+                <ion-icon name="md-pin" item-start></ion-icon>
+                <ion-select [(ngModel)]="gender">
+                    <ion-option value="f">Female</ion-option>
+                    <ion-option value="m">Male</ion-option>
+                </ion-select>
+                <ion-select [(ngModel)]="gender">
+                    <ion-option value="f">Female</ion-option>
+                    <ion-option value="m">Male</ion-option>
+                </ion-select>
+                <ion-select [(ngModel)]="gender">
+                    <ion-option value="f">Female</ion-option>
+                    <ion-option value="m">Male</ion-option>
+                </ion-select>
+                <ion-select [(ngModel)]="gender">
+                    <ion-option value="f">Female</ion-option>
+                    <ion-option value="m">Male</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
+                <ion-icon name="phone-portrait" item-start></ion-icon>
+                <ion-input placeholder="请输入手机号"></ion-input>
+            </ion-item>
+            <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
+                <ion-icon name="md-key" item-start></ion-icon>
+                <ion-input placeholder="请输入验证码"></ion-input>
+                <button ion-button clear item-end style="color:yellow;">获取验证码</button>
+            </ion-item>
+            <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
+                <ion-icon name="lock" item-start></ion-icon>
+                <ion-input placeholder="请输入密码"></ion-input>
+            </ion-item>
+            <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
+                <ion-icon name="lock" item-start></ion-icon>
+                <ion-input placeholder="请再次输入密码"></ion-input>
+            </ion-item>
+            <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
+                <ion-label item-start>邀请码：</ion-label>
+                <ion-input placeholder="输入邀请码双方都可获得50钻"></ion-input>
+            </ion-item>
+            <button (click)="register($event)" class="login-button" ion-button round full>注册</button>
+            <ion-label style="text-align:center;color:white;">注册代表您同意<a style="color:yellow;">《用户协议》</a></ion-label>
+          </ion-row>
+        </ion-row>  
+    </ion-content>  
+</ion-content>

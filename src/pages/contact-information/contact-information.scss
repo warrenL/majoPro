@@ -1,0 +1,168 @@
+page-contact-information {
+  // A:
+  .add-group-img {
+    width: 15px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    left: 6px;
+  }
+
+  .add-group {
+    padding: 0 7%;
+  }
+
+  .add-group a {
+    font-family: SFUIText-Light, SFUIText-Regular, SanFranciscoText-Light,
+     '.SFNSText-Light', SFCompactText-Light, HelveticaNeue-Light,
+     Helvetica Neue, Helvetica, Verdana, Arial, sans-serif;
+    font-weight: 200;
+    color: #1B9AF7;
+    font-size: 14px;
+  }
+
+  // C:
+  .contactInfo-title {
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: rgb(0, 0, 0);
+    font-family: Raleway;
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .contacts-relationship-bg {
+    background: rgb(230,230,230);
+    line-height: 18px;
+    letter-spacing: 0px;
+    font-family: Raleway;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: left;
+    .label.label-ios {
+      position: relative;
+      bottom: 0.3rem;
+    }
+    .label-ios {
+      margin: 9px 8px 11px 0;
+    }
+  }
+
+  .contacts-bg {
+    background: rgb(230,230,230);
+    line-height: 18px;
+    letter-spacing: 0px;
+    font-family: Raleway;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: left;
+    .label.label-ios {
+        position: relative;
+        bottom: 0.4rem;
+    }
+    .label-ios {
+      margin: 9px 8px 11px 0;
+    }
+  }
+
+  .contact-header-icon{
+    position: relative ;
+    right: 0.6rem;
+    font-size: 3rem;
+  }
+
+  // D:
+  .delete-contact-btn {
+    font-family: Roboto Medium, sans-serif;
+    color: #FFFFFF;
+    font-size: 14px;
+    position: relative;
+    width: 90%;
+    left: 5%;
+  }
+
+  // F:
+  .footer-height {
+    line-height: 10rem;
+    .toolbar-content.toolbar-content-ios {
+      background-color: white;
+    }
+  }
+
+  // G:
+  .group-name {
+    letter-spacing: 0px;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif, "Helvetica Neue", Arial;
+    font-size: 15px;
+    text-align: left;
+    padding: 0 7%;
+    .label-ios {
+      margin: 0;
+    }
+  }
+
+  // I:
+  .img-size {
+    width:2.1rem;
+    height:2.1rem;
+  }
+
+  .img-backgroug-color {
+    background-color: transparent;
+  }
+
+  .img-item-position {
+    color: #000;
+    position: relative;
+    bottom: -5px;
+    left: 1rem;
+    bottom: -0.3rem;
+  }
+
+  // N:
+  .nav-bar-text {
+    line-height: 24px;
+    letter-spacing: 0px;
+    color: rgb(255, 255, 255);
+    font-family: sans-serif, "Helvetica Neue", Arial;
+    font-size: 20px;
+    text-align: center;
+    position: relative ;
+    bottom: 0.4rem;
+  }
+
+  .no-contact-detail-text {
+    letter-spacing: 0px;
+    color: #9e9e9e;
+    font-size: inherit;
+    font-size: 70%;
+    font-family: sans-serif, "Helvetica Neue", Arial;
+  }
+
+  // P:
+  .phone-number-text.col {
+    position: relative;
+    bottom: -0.8rem;
+  } 
+  
+  // R:
+  .relationship-icon {
+    color: #1B9AF7;
+    font-size: 3rem;
+    position: relative;
+    left: 1rem;
+    bottom: -0.5rem;
+  }
+
+  .relationship-item-icon {
+    color: #1B9AF7;
+    font-size: 3rem;
+  }
+
+  // T:
+  .text-center {
+    text-align:center;
+  }
+}

@@ -1,0 +1,96 @@
+page-student-transfer {
+    // L:
+  .list-scroll {
+    height: 68%;
+  }
+
+  .list-scroll .label-ios {
+    margin: 0;
+  }
+
+  // S:
+  .student-transfer-header {
+    position: relative ;
+    bottom: 0.7rem;
+  }
+
+  .student-transfer-header img {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    bottom: -0.9rem;
+    left: -0.9rem;
+  }
+
+  .student-transfer-content-header {
+    padding-top: 3%;
+    font-size: 2rem;
+  }
+
+  .student-transfer-title-row {
+    padding-top: 2%;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #e0dfe4;
+  }
+
+  .student-transfer-group-col {
+    position: relative ;
+    left: 1.5rem;
+    font-size: small;
+  }
+
+  .student-transfer-date-col {
+    position: relative;
+    left: -1rem;
+    font-size: small;
+  }
+
+  .student-transfer-current-col {
+    position: relative ;
+    left: -1rem;
+  }
+
+  .student-transfer-list {
+    display: inline;
+  }
+
+  .student-transfer-list-date-col {
+    color:rgb(47,151,247);
+  }
+
+  .student-transfer-list-icon {
+    color:rgb(47,151,247);
+    position: relative;
+    bottom: -5px;
+    width: 20px;
+  }
+
+  .student-transfer-list-select-icon {
+    position: relative;
+    bottom: -5px;
+    width: 20px;
+  }
+
+  .student-transfer-save-btn {
+    font-family: Roboto Medium, sans-serif;
+    font-size: 14px;
+    position: relative;
+    width: 90%;
+    left: 5%;
+  }
+
+  // T:
+  .title-icon-text img {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    bottom: -0.9rem;
+    left: -0.9rem;
+  }
+  
+  .text-center {
+    text-align:center;
+  }
+}
+

@@ -1,0 +1,147 @@
+page-attendance {
+  // A:
+  #AttendListBorder ion-list {
+    border-top:1px solid #e6e6e6;
+  }
+
+  #AttendList ion-item {
+    padding-left: 0px;
+  }
+
+  // B:
+  .bar-unfill progress{
+    background:rgb(47,151,247);
+    width:70%;
+    border-radius:8px;
+    vertical-align:middle;
+    height:15px;
+    margin-bottom: 20px;
+    position: relative ;
+    bottom: -1.2rem;
+  }
+
+  .bar-unfill {
+    padding-left:"4px";
+  }
+
+  // C:
+  .comments-width {
+    width:3rem;
+    height:2.5rem;
+  }
+
+  // I:
+  .icon-top-margin ion-icon {
+    margin-top:10px;
+    margin-bottom:10px;
+  }
+
+    // L:
+  .list-scroll {
+    height: 76%;
+  }
+
+  .list-scroll .label-ios {
+    margin: 0;
+  }
+  
+  // P:
+  progress::-webkit-progress-bar { background: #e6e6e6; }
+  progress::-webkit-progress-value  { background: rgb(47,151,247); }
+
+  // S:
+  .swipe-text {
+    padding-right:4px;color: #000;
+  }
+
+  .student-sumary-row ion-col {
+    font-weight:bold;
+    font-size:large;
+    margin-top:2%;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    text-align: center;
+  }
+
+  .student-progress-row ion-col {
+    text-align: center;
+    margin-top:-2%;
+  }
+
+  .student-datetime-sumary-row ion-col {
+    font-size:large;
+    margin-bottom: 1px;
+    text-align: center;
+  }
+
+  .student-saveclear-btn button {
+    text-align:right;
+  }
+
+  .student-check-item-row ion-row {
+    height: 30px;
+  }
+
+  .student-swipe-img img {
+    width:23px;
+    height:23px;
+    position: relative;
+    transform: rotate(45deg);
+    bottom: -6px;
+  }
+
+  .student-status-img {
+    width:4.5rem;
+    height:2.5rem;
+  }
+  
+  .student-status-normal {
+    position:relative;
+    bottom:-2px;
+  }
+
+  .student-check-icon-text a {
+    color:green;
+    text-align:center;
+    padding-right:2px;
+    height: 20px;
+    position: relative;
+    bottom: 9px;
+  }
+
+  .student-check-button button {
+    background-image:url('../assets/present-border.jpg');
+    background-position: right center;
+    background-size: 3rem 2.8rem;
+    background-repeat: no-repeat;
+    transition: none;
+    position: relative;
+    width: 5rem;
+    .button-inner{
+      position: relative;
+      left: -1.7rem;
+      color: green;
+    }
+  }
+
+  // T:
+  .text-center {
+    text-align:center;
+  }
+
+  .text-right {
+    text-align:right;
+  }
+
+  .text-datetime ion-datetime {
+    margin-top: -2%;
+    color:rgb(47,151,247);
+    text-align:center;
+    font-size:1.4rem;
+  }
+
+  .text-size-save-col div {
+    text-align:center;
+    font-size:small;
+  }
+}

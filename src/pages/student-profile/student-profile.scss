@@ -1,0 +1,178 @@
+page-student-profile {
+  // A:
+  .add-group {
+    padding: 0 2% 0 2%;
+  }
+
+  .add-group a {
+    font-family: SFUIText-Light, SFUIText-Regular, SanFranciscoText-Light, '.SFNSText-Light', SFCompactText-Light, HelveticaNeue-Light, Helvetica Neue, Helvetica, Verdana, Arial, sans-serif;
+    font-weight: 200;
+    color: #1B9AF7;
+    font-size: 14px;
+    color: #1B9AF7;
+  }
+
+  .add-group-img {
+    width: 15px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    left: 6px;
+  }
+
+  .attendance-contacts {
+    height: 40px;
+    background: rgb(230,230,230);
+    line-height: 18px;
+    letter-spacing: 0px;
+    font-family: Raleway;
+    font-weight: 300;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .attendance-history {
+    padding: 0 2% 0 2%;
+    margin-top: 12%;
+    height: 100px;
+  }
+
+  // C:
+  .current-groups-note {
+    white-space: nowrap;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font-family: Raleway;
+    font-weight: 300;
+    font-size: 16px;
+    padding: 6px 7%;
+  }
+
+  // E:
+  .emergency-contacts {
+    padding: 0 2% 0 2%;
+  }
+
+  .emergency-items {
+    padding: 0 2% 0 2%;
+  }
+
+  .email-right-margin {
+    margin-right: 0.5rem;
+  }
+
+  // G:
+  .group-name {
+    letter-spacing: 0px;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif, "Helvetica Neue", Arial;
+    font-size: 15px;
+    text-align: left;
+    padding: 0 2% 0 2%;
+    .item-inner {
+        background-position: right 3px center !important;
+        background-size: 18px 18px !important;
+    }
+  }
+
+  .group-name button {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+  }
+
+  // I:
+  .item-block {
+    min-height: 0;
+  }
+
+  .item-ios [item-right], .item-ios [item-end] {
+    margin: 0 8px 0 0;
+  }
+
+  .item-mockup {
+    position: relative;
+    height: 4rem;
+  }
+
+  .img-size {
+    width:2.5rem;
+    height:2.5rem;
+  }
+
+  .img-transfer-size {
+    width:3rem;
+    height:3rem;
+  }
+
+  // O:
+  .no-history-text {
+    letter-spacing: 0px;
+    color: #9e9e9e;
+    font-size: inherit;
+    font-size: 70%;
+    font-family: sans-serif, "Helvetica Neue", Arial;
+  }
+
+  // R:
+  .relationship-icon {
+    color: #1B9AF7;
+    font-size: 3rem;
+    position: relative;
+    left: 1rem;
+    margin-right: 1rem;
+  }
+
+  // S:
+  .student-detail {
+    width: 375px;
+    margin: auto;
+    width: 100%;
+  }
+
+  .student-avatar {
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    background-color: #E2E2E2;
+    opacity: 1;
+    line-height: 54px;
+    letter-spacing: 0px;
+    color: rgb(84, 194, 66);
+    font-family: sans-serif, "Helvetica Neue", Arial;
+    font-size: 36px;
+    border: 1px solid #A9A9A9;
+    text-align: center;
+  }
+
+  .student-name {
+    line-height: 78px;
+    letter-spacing: 0px;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif, "Helvetica Neue", Arial;
+    font-size: 24px;
+    text-align: left;
+  }
+
+  // T:
+  .text-center {
+    text-align:center;
+  }
+  
+  .title-avatar {
+    width:3.5rem;
+    height:3.5rem;
+    vertical-align: middle;
+    position: relative;
+    right: 12px;
+    top: -2px;
+  }
+
+  .list-scroll {
+    height: 84%;
+  }
+
+  .list-scroll .label-ios {
+    margin: 0;
+  }
+}

@@ -1,0 +1,51 @@
+page-splash-screen {
+  .button-ios {
+    color: #000;
+    background-color: #fff;
+  }
+  .round-button {
+    position: relative;
+    top: 50%;
+    text-align: center;
+    padding-top: 5%
+  }
+
+  .login-button {
+    height: 42px;
+    font-family: 'Raleway';
+    font-weight: 200;
+    color: #000000;
+    font-size: 20px;
+    background-color: #FFFFFF;
+    border: 0px solid #FFFFFF;
+    margin: 20px 15%;
+  }
+
+  .foot-style {
+    color: white;
+    font-size: 1.5rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    position: relative;
+    top: 50%;
+  }
+  
+  .login-title {
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+  }
+
+  .splash-background {
+    background-color: #8fcff4;
+  }
+
+  .splash-head-item {
+    background-color: #8fcff4;
+    width: 350px;
+    margin: 0 auto;
+    position: relative;
+    top: 11%;
+  }
+
+}

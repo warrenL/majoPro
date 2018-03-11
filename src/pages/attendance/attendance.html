@@ -1,0 +1,71 @@
+<!--
+  attendance page header html
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>4AMA4 Math</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--
+  attendance page content html
+-->
+<ion-content id="AttendListBorder">
+     <ion-row class="student-sumary-row">
+    <ion-col class="student-swipe-img" align-self-center col-12>
+      <a class="swipe-text">Swipe</a>
+      <img src="assets/arrow_double.png">
+      <a class="swipe-text">to record attendance</a>
+    </ion-col>
+  </ion-row>
+  <ion-row class="student-progress-row">
+    <ion-col class="student-check-button" align-self-center col-12>
+      <button (click)="checkAll()" ion-button clear>All</button>
+      <span padding-left="4px" class="bar-unfill">
+        <progress color="secondary" max="100" value={{checkProgress}}></progress>
+      </span>
+    </ion-col>
+  </ion-row>
+  <ion-row class="student-datetime-sumary-row">
+    <ion-col class="text-datetime" align-self-center>
+      <ion-datetime displayFormat="DDDD, MMM DD, YYYY" pickerFormat="MMM DD YYYY" [(ngModel)]="signDate"></ion-datetime>
+    </ion-col>
+  </ion-row>
+  
+
+  <ion-scroll   class='list-scroll'  scrollY="true" no-padding>
+    <ion-list id="AttendList" can-swipe="listCanSwipe" overflow-scroll="true">
+      <ion-item-sliding *ngFor="let item of items" (touchend)="ontouchEnd($event,item)" (ionDrag)="dragStatus($event)">
+        <button ion-item class="student-check-item-row" (click)="transformStudent($event, item)" detail-none>
+          <ion-row>
+            <ion-col align-self-center>
+                <img *ngIf="status[item]=='Normal'" class="student-status-normal student-status-img" src="assets/present.jpg" padding-left>
+            </ion-col>
+            <ion-col class="text-center">
+                {{item}}
+            </ion-col>
+            <ion-col class="text-right">
+              <img src="assets/comment.jpg" *ngIf="status[item]=='Absent'||status[item]=='Late'||status[item]=='SchoolClosure'||status[item]=='SchoolFunction'" class="comments-width">
+              <img src="assets/absent.jpg" *ngIf="status[item]=='Absent'" class="student-status-img" padding-right>
+              <img src="assets/tardy.jpg" *ngIf="status[item]=='Late'" class="student-status-img" padding-right>
+              <img src="assets/tardy.jpg" *ngIf="status[item]=='SchoolClosure'" class="student-status-img" padding-right>
+              <img src="assets/tardy.jpg" *ngIf="status[item]=='SchoolFunction'" class="student-status-img" padding-right>
+            </ion-col>
+          </ion-row>
+        </button>
+        <ion-item-options>
+          <div class="button" color="danger" ion-button icon-start>
+            <ion-icon name="close-circle"></ion-icon>
+            ABSENT
+          </div>
+        </ion-item-options>
+        <ion-item-options side="left">
+          <div class="button" color="secondary" ion-button icon-start>
+            <ion-icon name="checkmark-circle"></ion-icon>
+            PRESENT
+          </div>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </ion-scroll>
+</ion-content>

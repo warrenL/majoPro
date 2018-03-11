@@ -1,0 +1,103 @@
+<!--
+  contact information page header html
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      <ion-icon class="text-center contact-header-icon" name="ios-contacts-outline"></ion-icon>
+      <a class="nav-bar-text">
+        Contact Info
+      </a>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<!--
+  contact information page content html
+-->
+<ion-content>
+  <ion-label class="contactInfo-title">{{contactName}}</ion-label >
+
+  <ion-item class="contacts-relationship-bg" no-lines>
+    Relationship
+    <ion-icon class="relationship-icon" name="ios-people-outline"></ion-icon>
+  </ion-item>
+  <ion-item *ngIf="relationshipNote == 0" class="group-name"> 
+    <ion-label class="no-contact-detail-text">No Relationship</ion-label>
+  </ion-item>
+  <button *ngFor="let relationship of relationshipList" class="group-name" ion-item detail-none no-lines>
+    {{relationship.name}}
+    <button class="img-backgroug-color" (click)="editRelationship($event,relationship)" item-end>
+      <!-- <img class="img-size" src="assets/student/edit.png"> -->
+      <ion-icon class="relationship-item-icon" name="md-create"></ion-icon>
+    </button>
+    <button class="img-backgroug-color" (click)="deleteRelationship($event,relationship)" item-end>
+      <!-- <img class="img-size" src="assets/student/delete.png"> -->
+      <ion-icon class="relationship-item-icon" name="ios-trash-outline"></ion-icon>
+    </button>
+  </button>
+
+  <ion-item class="contacts-bg" no-lines>
+    Email
+    <!-- <img class="img-item-position img-size" src="assets/student/email.png"> -->
+    <ion-icon class="relationship-icon" name="ios-mail-outline"></ion-icon>
+  </ion-item>
+  <ion-item *ngIf="emailNote == 0" class="group-name"> 
+    <ion-label class="no-contact-detail-text">No Email Address</ion-label>
+  </ion-item>
+  <button *ngFor="let email of emailList" class="group-name" (click)="sendEmail($event,email)" ion-item detail-none>
+    {{email.email}}
+    <button class="img-backgroug-color" (click)="editEmail($event,email)" item-end>
+      <!-- <img class="img-size" src="assets/student/edit.png"> -->
+      <ion-icon class="relationship-item-icon" name="md-create"></ion-icon>
+    </button>
+    <button class="img-backgroug-color" (click)="deleteEmail($event,email)" item-end>
+      <!-- <img class="img-size" src="assets/student/delete.png"> -->
+      <ion-icon class="relationship-item-icon" name="ios-trash-outline"></ion-icon>
+    </button>
+  </button>
+  <ion-item class="add-group" no-lines>
+    <a>Add Email</a>
+    <img class="add-group-img" src="assets/student/add.png">
+  </ion-item>
+
+  <ion-item class="contacts-bg" no-lines>
+    Phone
+    <ion-icon class="relationship-icon" name="ios-call-outline"></ion-icon>
+    <!-- <img class="img-item-position img-size" src="assets/student/tel-gray.png"> -->
+  </ion-item>
+  <ion-item *ngIf="phoneNote == 0" class="group-name"> 
+    <ion-label class="no-contact-detail-text">No Phone Number</ion-label>
+  </ion-item>
+  <button *ngFor="let phone of phoneList" class="group-name" (click)="telPhone($event,phone)" ion-item detail-none>
+    <ion-row>
+      <ion-col class="phone-number-text" col-8>
+        {{phone.phone}}
+      </ion-col>
+      <ion-col class="text-center" item-end>
+        {{phone.type}}
+      </ion-col>
+    </ion-row>
+    <button class="img-backgroug-color" (click)="editPhone($event,phone)" item-end>
+      <!-- <img class="img-size" src="assets/student/edit.png"> -->
+      <ion-icon class="relationship-item-icon" name="md-create"></ion-icon>
+    </button>
+    <button class="img-backgroug-color" (click)="deletePhone($event,phone)" item-end>
+      <!-- <img class="img-size" src="assets/student/delete.png"> -->
+      <ion-icon class="relationship-item-icon" name="ios-trash-outline"></ion-icon>
+    </button>
+  </button>
+  <ion-item class="add-group" no-lines>
+    <a>Add Phone</a>
+    <img class="add-group-img" src="assets/student/add.png">
+  </ion-item>
+</ion-content>
+
+<!--
+  contact information page footer html
+-->
+<ion-footer class="footer-height" no-lines>
+  <ion-toolbar>
+    <button class="delete-contact-btn" color="danger" (click)="deleteContact($event)" ion-button>DELETE CONTACT</button>
+  </ion-toolbar>
+</ion-footer>

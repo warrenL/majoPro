@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+    <ion-title>Search</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-slides class="slide-title" [slidesPerView]="7" [pager]="true">
+      <ion-slide *ngFor="let slide of slides; let i = index;">
+        <div (click)="active(i)">
+          <span class="slide-title-unit" [ngClass]="{'slide-title-active': selectedIndex == i}">{{slide}}</span>
+        </div>
+      </ion-slide>
+    </ion-slides>
+</ion-content>
