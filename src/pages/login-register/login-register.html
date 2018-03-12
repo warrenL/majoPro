@@ -5,14 +5,14 @@
     <ion-row class="login-register-btn">
       <ion-col></ion-col>
       <ion-col>
-      <ion-segment [(ngModel)]="authentication" (ionChange)="segmentChanged($event)">
-        <ion-segment-button value="登录">
-            登录
-        </ion-segment-button>
-        <ion-segment-button value="注册">
-            注册
-        </ion-segment-button>
-      </ion-segment>
+        <ion-segment [(ngModel)]="authentication" (ionChange)="segmentChanged($event)">
+            <button ion-button clear value="登录" style="color:white;">
+                登录
+            </button>
+            <button ion-button clear value="注册" style="color:white;">
+                注册
+            </button>
+        </ion-segment>
       </ion-col>
       <ion-col></ion-col>
     </ion-row>

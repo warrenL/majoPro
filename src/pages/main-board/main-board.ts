@@ -24,4 +24,35 @@ export class MainBoardPage {
     console.log('ionViewDidLoad MainBoardPage');
   }
 
+  signToday(event) {
+
+  }
+
+  logout(event) {
+
+  }
+
+  needInstallMajo(event) {
+
+  }
+
+  weInstallMajo(event) {
+
+  }
+
+  topTen(event) {
+
+  }
+
+  adArea(event) {
+
+  }
+
+  mall(event) {
+
+  }
+
+  contcatUs(event) {
+
+  }
 }
