@@ -27,7 +27,7 @@
                 </ion-label>
             </ion-item>
             <ion-item no-lines no-padding class="login-background">
-                <ion-input placeholder="请输入手机号" [(ngModel)]="username" class="login-background" style="padding-left:15%;padding-right:15%;"></ion-input>
+                <ion-input placeholder="请输入手机号" type="tel" [(ngModel)]="username" class="login-background" style="padding-left:15%;padding-right:15%;"></ion-input>
             </ion-item>
             <ion-item no-lines no-padding class="login-background">
                 <!-- <img width="33" height="33" src="assets/login/password.png" item-start> -->
@@ -37,7 +37,7 @@
                 </ion-label>
             </ion-item>
             <ion-item no-lines no-padding class="login-background">
-                <ion-input  placeholder="请输入密码" [(ngModel)]="password" class="login-background" style="padding-left:15%;padding-right:15%;"></ion-input>
+                <ion-input  placeholder="请输入密码" type="password" [(ngModel)]="password" class="login-background" style="padding-left:15%;padding-right:15%;"></ion-input>
             </ion-item>
             <!-- <ion-item no-lines no-padding class="login-background"> -->
             <ion-row>
@@ -59,7 +59,7 @@
           <ion-row *ngSwitchCase="'注册'">  
             <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
                 <ion-icon name="md-person" item-start></ion-icon>
-                <ion-input placeholder="请输入姓名"></ion-input>
+                <ion-input placeholder="请输入姓名" type="text"></ion-input>
             </ion-item>
             <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
                 <ion-icon name="md-pin" item-start></ion-icon>
@@ -82,24 +82,24 @@
             </ion-item>
             <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
                 <ion-icon name="phone-portrait" item-start></ion-icon>
-                <ion-input placeholder="请输入手机号"></ion-input>
+                <ion-input placeholder="请输入手机号" type="tel"></ion-input>
             </ion-item>
             <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
                 <ion-icon name="md-key" item-start></ion-icon>
-                <ion-input placeholder="请输入验证码"></ion-input>
+                <ion-input placeholder="请输入验证码" type="number"></ion-input>
                 <button ion-button clear item-end style="color:yellow;">获取验证码</button>
             </ion-item>
             <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
                 <ion-icon name="lock" item-start></ion-icon>
-                <ion-input placeholder="请输入密码"></ion-input>
+                <ion-input placeholder="请输入密码" type="password"></ion-input>
             </ion-item>
             <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
                 <ion-icon name="lock" item-start></ion-icon>
-                <ion-input placeholder="请再次输入密码"></ion-input>
+                <ion-input placeholder="请再次输入密码" type="password"></ion-input>
             </ion-item>
             <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
                 <ion-label item-start>邀请码：</ion-label>
-                <ion-input placeholder="输入邀请码双方都可获得50钻"></ion-input>
+                <ion-input placeholder="输入邀请码双方都可获得50钻" type="number"></ion-input>
             </ion-item>
             <button (click)="register($event)" class="login-button" ion-button round full>注册</button>
             <ion-label style="text-align:center;color:white;">注册代表您同意<a style="color:yellow;">《用户协议》</a></ion-label>
