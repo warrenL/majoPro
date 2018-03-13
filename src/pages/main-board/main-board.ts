@@ -33,7 +33,7 @@ export class MainBoardPage {
   }
 
   needInstallMajo(event) {
-
+    this.navCtrl.push('machine-maintain-page', null, {animation: 'md-transition', direction: 'forward'});
   }
 
   weInstallMajo(event) {
