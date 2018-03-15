@@ -1,23 +1,129 @@
 <ion-header no-shadow no-border>
   <ion-navbar>
-    <ion-title class="toolbar-md-title-text-align" style="text-align:center;">我要找师傅上门帮我维修和安装麻将机</ion-title>
+    <ion-title style="text-align:center;font-size: 1.5rem;">我要找师傅上门帮我维修和安装麻将机</ion-title>
+    
   </ion-navbar>
-  <ion-toolbar color="light">
+    
+  <ion-toolbar>
     <ion-segment class="top_segment" [(ngModel)]="top_segment">
-      <ion-segment-button (click)="select(0)" value="top_0">
-        top1
+      <ion-segment-button value="top_0">
+        所有订单
       </ion-segment-button>
-      <ion-segment-button (click)="select(1)" value="top_1">
-        top2
+      <ion-segment-button value="top_1">
+        发布新订单
       </ion-segment-button>
-      <ion-segment-button (click)="select(2)" value="top_2">
-        top3
+      <ion-segment-button value="top_2">
+        我发布的订单
+      </ion-segment-button>
+      <ion-segment-button value="top_3">
+        个人中心
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-
-<ion-content has-bouncing="false">
-
+<ion-content [ngSwitch]="top_segment">  
+    <ion-content *ngSwitchCase="'top_0'">
+      <ion-card>
+        <ion-card-content>
+          <ion-item style="font-size: 0.5rem;">
+            <ion-label style="color:black;">选择订单区域</ion-label>
+            <ion-select [(ngModel)]="privce" placeholder="省" style="color:black;">
+                <ion-option value="hubei">湖北省</ion-option>
+                <ion-option value="hunan">湖南省</ion-option>
+            </ion-select>
+            <ion-select [(ngModel)]="city" placeholder="市" style="color:black;">
+                <ion-option value="wuhan">武汉市</ion-option>
+                <ion-option value="xiangtan">湘潭市</ion-option>
+            </ion-select>
+            <ion-select [(ngModel)]="direct" placeholder="区" style="color:black;">
+                <ion-option value="dongxin">东新区</ion-option>
+                <ion-option value="kaifaqu">开发区</ion-option>
+            </ion-select>
+            <ion-select [(ngModel)]="town" placeholder="镇" style="color:black;">
+                <ion-option value="guanshan">关山大道</ion-option>
+                <ion-option value="guanggu">光谷大道</ion-option>
+            </ion-select>
+            <img class="filter-img" src="assets/group/filter.png" item-end tappable (click)="filterByArea($event)">
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <ion-card *ngFor="let publishOrder of publishAllOrder">
+        <ion-card-header>
+          <ion-row>
+            <ion-label style="font-size:1rem;color:gray;">
+              订单号：{{publishOrder.orderId}}
+            </ion-label>
+            <ion-label style="font-size:1rem;color:brown;text-align:end" tappable (click)="sendToTop($event)">
+              【置顶】
+            </ion-label>
+          </ion-row>
+        </ion-card-header>
+        <ion-card-content>
+          <div>
+            <ion-label style="font-size:1.5rem;">
+              订单发布者：{{publishOrder.orderName}}
+            </ion-label>
+          </div>
+          <div>
+            <ion-label style="font-size:1.5rem;">
+              {{publishOrder.orderType}}
+            </ion-label>
+          </div>
+          <div>
+            <ion-label style="font-size:1.5rem;">
+              大概地址：{{publishOrder.address}}
+            </ion-label>
+          </div>
+          <div>
+            <ion-label style="font-size:1.5rem;">
+              详细地址：{{publishOrder.detailAddress}}
+            </ion-label>
+          </div>
+          <div>
+            <ion-label style="font-size:1.5rem;">
+              电话：{{publishOrder.tel}}
+            </ion-label>
+          </div>
+          <div>
+            <ion-label style="font-size:1.5rem;">
+              订单发布日期：{{publishOrder.publishDate}}
+            </ion-label>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      <!-- <ion-card>
+        <ion-card-header>
+          订单号：
+        </ion-card-header>
+        <ion-card-content>
+          The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
+        </ion-card-content>
+      </ion-card> -->
+    </ion-content>
+    <ion-content *ngSwitchCase="'top_1'">
+      <ion-grid>
+        <ion-row style="padding-top:35%;">
+          <ion-col></ion-col>
+          <ion-col style="text-align: center;">
+            <ion-icon name="clipboard" style="padding-left:15%;padding-top:15%;font-size:10rem;color:gray;"></ion-icon>
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+        <ion-row style="text-align:center;">
+            <ion-label style="color:grey;">您当前没有订单，赶紧去发布吧！</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-col col-2></ion-col>
+          <ion-col>
+            <button ion-button round style="width: 100%;background-color:#66CCFF;color:black;">发布新订单</button>
+          </ion-col>
+          <ion-col col-2></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+    <ion-content *ngSwitchCase="'top_2'">
+    </ion-content>
+    <ion-content *ngSwitchCase="'top_3'">
+    </ion-content>
 </ion-content>

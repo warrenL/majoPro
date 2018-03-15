@@ -6,12 +6,12 @@
       <ion-col></ion-col>
       <ion-col>
         <ion-segment [(ngModel)]="authentication" (ionChange)="segmentChanged($event)">
-            <button ion-button clear value="登录" style="color:white;">
+            <ion-segment-button value="登录" style="color:white;">
                 登录
-            </button>
-            <button ion-button clear value="注册" style="color:white;">
+            </ion-segment-button>
+            <ion-segment-button value="注册" style="color:white;">
                 注册
-            </button>
+            </ion-segment-button>
         </ion-segment>
       </ion-col>
       <ion-col></ion-col>

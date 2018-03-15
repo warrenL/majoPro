@@ -2,9 +2,44 @@ page-machine-maintain {
   $header-color-bg: #eee;
   $animation-duration: 0.4s;
 
+  .toolbar-md-light .toolbar-background-md {
+    background: white;
+  }
+  
+
+  .segment-md .segment-button {
+    color:black;
+  }
+
+  .area-filter-color {
+    color:black;
+  }
+
+  .card-header-md {
+    font-size: 1.6rem;
+    color: #222;
+    padding: 10px;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 0px;
+    padding-left: 16px;
+  }
+  
+  .filter-img {
+    width:23px;
+    height:23px;
+    position: relative;
+    left: 16px;
+  }
 	  .top_segment{
       color: #66CCFF;
     }
+    .toolbar-title-md {
+      padding: 0 12px;
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #66CCFF;
+  }
     ion-list {
     ion-item {
       background-color: transparent;
