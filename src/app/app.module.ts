@@ -34,7 +34,7 @@ import { NgCalendarModule } from 'ionic2-calendar';
     BrowserAnimationsModule,
     HttpModule,
     NgCalendarModule,
-    IonicModule.forRoot(ClassroomAPP, {preloadModules: true, mode: 'android', backButtonText: '', tabsHideOnSubPages: true}),
+    IonicModule.forRoot(ClassroomAPP, {preloadModules: true, backButtonText: '', tabsHideOnSubPages: true}),
     IonicStorageModule.forRoot({
       name: '__mydb',
       driverOrder: ['websql']
