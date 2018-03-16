@@ -1,0 +1,44 @@
+<!--
+  Generated template for the MaintainListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-shadow no-border>
+  <ion-navbar>
+    <ion-title class="" style="text-align:center;font-size: 1.5rem;">收到的服务申请</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding="fasle">
+  <ion-card *ngFor="let maintainer of maintainerList">
+    <ion-card-content>
+      <ion-row>
+        <ion-col col-2 style="text-align:center;">
+          <ion-icon name="image" style="color:aqua;font-size: 4rem;" item-start></ion-icon>
+        </ion-col>
+        <ion-col col-15>
+          <ion-row>
+            <ion-col col-6>
+              <a style="color:black;">{{maintainer.name}}</a>
+              <a style="color:#66CCFF;">【简历】</a>
+            </ion-col>
+            <ion-col col-5>
+              <a style="color:brown;float:right;">{{maintainer.hotpoint}}</a>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <div>
+            <a style="color:black;">称号：{{maintainer.role}}</a>
+            <a style="color:grey;text-align:end;" tappable (click)="chooseMaintainer($event)">【选择让他上门服务】</a>
+            </div>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+      <ion-item>
+        <!-- <ion-label [color]="{{maintainer.ordercount}} >= 20 ? 'red':'black'">{{maintainer.ordercount}} >= 20 ? 【订单已满】20/20 无法再接单: 【订单数量】：{{maintainer.ordercount}}/20</ion-label> -->
+        <ion-label style="color:#66CCFF;">点击建立可以查看师傅评价 建议选择评价较好的师傅上门服务</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
