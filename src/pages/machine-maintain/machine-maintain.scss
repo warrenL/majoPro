@@ -30,8 +30,13 @@ page-machine-maintain {
     margin: 9px 6px 9px 4px;
   }
   
+  .item-md ion-icon[item-left], .item-md ion-icon[item-right], .item-md ion-icon[item-start], .item-md ion-icon[item-end] {
+    margin-left: 10px;
+  }
+
   .item-md {
      padding-left: 0px;
+     color:#3a3b3c;
   }
   .filter-img {
     width:23px;
@@ -48,6 +53,24 @@ page-machine-maintain {
       font-weight: 500;
       color: #66CCFF;
   }
+
+  .filter-height {
+    padding-left: 1rem;
+    font-size: 2rem;
+    min-height: 2rem;
+  }
+
+  .personal-center-icon {
+    color: #66CCFF;
+    min-height: 3.3rem;
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+  
+  .label-md {
+    margin: 4px 0px 4px 0; 
+  }
+
     ion-list {
     ion-item {
       background-color: transparent;

@@ -37,7 +37,7 @@ export class MainBoardPage {
   }
 
   weInstallMajo(event) {
-
+    this.navCtrl.push('maintainer-page', null, {animation: 'md-transition', direction: 'forward'});
   }
 
   topTen(event) {
@@ -49,7 +49,7 @@ export class MainBoardPage {
   }
 
   mall(event) {
-
+    this.navCtrl.push('mall-page', null, {animation: 'md-transition', direction: 'forward'});
   }
 
   contcatUs(event) {

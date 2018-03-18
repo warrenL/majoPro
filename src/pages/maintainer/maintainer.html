@@ -1,18 +1,18 @@
 <ion-header no-shadow no-border>
   <ion-navbar>
-    <ion-title style="text-align:center;font-size: 1.5rem;">我要找师傅上门帮我维修和安装麻将机</ion-title>
+    <ion-title style="text-align:center;font-size: 1.5rem;">我想去维修和安装麻将机</ion-title>
   </ion-navbar>
     
   <ion-toolbar>
     <ion-segment class="top_segment" [(ngModel)]="top_segment">
       <ion-segment-button value="top_0">
-        所有订单
+        待接取订单
       </ion-segment-button>
       <ion-segment-button value="top_1">
-        发布新订单
+        申请中的
       </ion-segment-button>
       <ion-segment-button value="top_2">
-        我发布的订单
+        申请已通过
       </ion-segment-button>
       <ion-segment-button value="top_3">
         个人中心
@@ -53,17 +53,20 @@
             <ion-label style="font-size:1rem;color:gray;">
               订单号：{{publishOrder.orderId}}
             </ion-label>
-            <ion-label style="font-size:1rem;color:brown;text-align:end" tappable (click)="sendToTop($event)">
+            <ion-label style="font-size:1rem;color:#f29491;text-align:end" tappable (click)="sendToTop($event)">
               【置顶】
             </ion-label>
           </ion-row>
         </ion-card-header>
         <ion-card-content>
-          <div>
+          <ion-row>
             <ion-label style="font-size:1.5rem;">
               订单发布者：{{publishOrder.orderName}}
             </ion-label>
-          </div>
+            <ion-label style="font-size:1.5rem;text-align:end" tappable (click)="sendResume($event)">
+              <a>申请维修并投送简历</a>
+            </ion-label>
+          </ion-row>
           <div>
             <ion-label style="font-size:1.5rem;">
               {{publishOrder.orderType}}
@@ -93,115 +96,120 @@
       </ion-card>
     </ion-content>
     <ion-content *ngSwitchCase="'top_1'">
-      <ion-grid>
-        <ion-row style="padding-top:35%;">
-          <ion-col></ion-col>
-          <ion-col style="text-align: center;">
-            <ion-icon name="clipboard" style="width:100%;font-size:10rem;color:gray;"></ion-icon>
-          </ion-col>
-          <ion-col></ion-col>
-        </ion-row>
-        <ion-row style="text-align:center;">
-          <ion-col col-2></ion-col>
-          <ion-col>
-            <a style="color:grey;text-align:center;">您当前没有订单，赶紧去发布吧！</a>
-          </ion-col>
-          <ion-col col-2></ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col col-2></ion-col>
-          <ion-col>
-            <button ion-button round style="width: 100%;background-color:#66CCFF;color:#2e4553;" (click)="publishOrder($event)">发布新订单</button>
-          </ion-col>
-          <ion-col col-2></ion-col>
-        </ion-row>
-      </ion-grid>
-    </ion-content>
-    <ion-content *ngSwitchCase="'top_2'">
-      <ion-row>
-        <ion-col>
-          <ion-item no-line>
-            <ion-select [(ngModel)]="filterDays" placeholder="自动删除过了3天的订单" style="color:grey;font-size:1.5rem;">
-              <ion-option value="3">自动删除过了3天的订单</ion-option>
-              <ion-option value="7">自动删除过了7天的订单</ion-option>
-            </ion-select>
-            <ion-checkbox style="padding-left:5px;font-size:1rem;" [(ngModel)]="selectFilterByDays" (ionChange)="updateSelectFilter()"></ion-checkbox>
-          </ion-item>
-        </ion-col>
-        <ion-col>
-          <ion-item no-line>
-            <ion-label style="font-size:1.5rem;color:#66CCFF;text-align:end;vertical-align: middle;" tappable (click)="refereshMyOrder($event)">
-              <ion-icon name="refresh"></ion-icon>
-              刷新
-            </ion-label>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-      <ion-card *ngFor="let publishOrder of publishAllOrder">
+        <ion-card *ngFor="let applyingOrder of applyingAllOrder">
+            <ion-card-header>
+              <ion-row>
+                <ion-label style="font-size:1rem;color:gray;">
+                  订单号：{{applyingOrder.orderId}}
+                </ion-label>
+                <ion-label style="font-size:1rem;color:#f29491;text-align:end" tappable (click)="sendToTop($event)">
+                  【取消申请】
+                </ion-label>
+              </ion-row>
+            </ion-card-header>
             <ion-card-content>
-              <ion-item>
-                <ion-label class="top_segment">
-                  <ion-icon name="clipboard"></ion-icon>
-                  修改内容
+              <ion-row>
+                <ion-label style="font-size:1.5rem;">
+                  订单发布者：{{applyingOrder.orderName}}
                 </ion-label>
-                <ion-label style="font-size:1.5rem;color:brown;text-align:end" tappable (click)="sendToTop($event)">
-                  状态：{{publishOrder.status}}
+                <ion-label style="font-size:1.5rem;text-align:end" tappable (click)="sendResume($event)">
+                  <a>状态：申请中</a>
                 </ion-label>
-              </ion-item>
+              </ion-row>
               <div>
                 <ion-label style="font-size:1.5rem;">
-                  订单发布者：{{publishOrder.orderName}}
+                  {{applyingOrder.orderType}}
                 </ion-label>
               </div>
               <div>
                 <ion-label style="font-size:1.5rem;">
-                  {{publishOrder.orderType}}
+                  大概地址：{{applyingOrder.address}}
                 </ion-label>
               </div>
               <div>
                 <ion-label style="font-size:1.5rem;">
-                  大概地址：{{publishOrder.address}}
+                  详细地址：{{applyingOrder.detailAddress}}
                 </ion-label>
               </div>
               <div>
                 <ion-label style="font-size:1.5rem;">
-                  详细地址：{{publishOrder.detailAddress}}
+                  电话：{{applyingOrder.tel}}
                 </ion-label>
               </div>
               <div>
                 <ion-label style="font-size:1.5rem;">
-                  电话：{{publishOrder.tel}}
+                  订单发布日期：{{applyingOrder.publishDate}}
                 </ion-label>
-              </div>
-              <div>
-                <ion-label style="font-size:1.5rem;">
-                  订单发布日期：{{publishOrder.publishDate}}
-                </ion-label>
-              </div>
-              <div>
-                  <a style="font-size:1.5rem;color:brown;" tappable (click)="selectMaintainer($event)">上门服务申请 请选择一个师傅</a>
               </div>
               <ion-row>
-                <ion-col>
-                  <a style="font-size:1.5rem;color:brown;">
-                    【置顶】
-                  </a>
-                  <a *ngIf="publishOrder.status != '已上架'" style="font-size:1.5rem;color:brown;" tappable (click)="upToTop($event)">
-                    【上架】
-                  </a>
-                  <a *ngIf="publishOrder.status == '已上架'" style="font-size:1.5rem;color:brown;" tappable (click)="downFromTop($event)">
-                    【下架】
-                  </a>
-                  <a style="font-size:1.5rem;color:brown;">
-                    <ion-icon name="alert" style="font-size:1.8rem;color:brown;"></ion-icon>
-                  </a>
-                </ion-col>
-                <ion-col style="text-align: end;">
-                  <ion-icon name="trash" style="font-size:1.8rem;color:brown;"></ion-icon>
-                </ion-col>
+                <ion-label style="font-size:1.5rem;">
+                  申请维修日期：{{applyingOrder.applyingDate}}
+                </ion-label>
+                <a style="font-size:1.5rem;text-align:end" tappable (click)="sendResume($event)">
+                  <ion-icon name="trash" style="font-size: 1.5em;color:grey;"></ion-icon>
+                </a>
               </ion-row>
             </ion-card-content>
           </ion-card>
+    </ion-content>
+    <ion-content *ngSwitchCase="'top_2'">
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col>
+          <ion-label style="font-size:1.5rem;color:#66CCFF;padding-right:1rem;text-align:end;vertical-align: middle;" tappable (click)="refereshMyOrder($event)">
+            等待完成的订单20/20
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-card *ngFor="let publishOrder of publishAllOrder">
+          <ion-card-header>
+            <ion-row>
+              <ion-label style="font-size:1rem;color:gray;">
+                订单号：{{publishOrder.orderId}}
+              </ion-label>
+            </ion-row>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-label style="font-size:1.5rem;">
+                订单发布者：{{publishOrder.orderName}}
+              </ion-label>
+              <ion-label style="font-size:1.5rem;text-align:end" tappable (click)="sendResume($event)">
+                <a style="color:#f29491;"><ion-icon md="ios-warning"></ion-icon>已完成|举报</a>
+              </ion-label>
+            </ion-row>
+            <div>
+              <ion-label style="font-size:1.5rem;">
+                {{publishOrder.orderType}}
+              </ion-label>
+            </div>
+            <div>
+              <ion-label style="font-size:1.5rem;">
+                大概地址：{{publishOrder.address}}
+              </ion-label>
+            </div>
+            <div>
+              <ion-label style="font-size:1.5rem;">
+                详细地址：{{publishOrder.detailAddress}}
+              </ion-label>
+            </div>
+            <div>
+              <ion-label style="font-size:1.5rem;">
+                电话：{{publishOrder.tel}}
+              </ion-label>
+            </div>
+            <div>
+              <ion-label style="font-size:1.5rem;">
+                申请维修通过日期：{{publishOrder.publishDate}}
+              </ion-label>
+            </div>
+            <div>
+              <ion-label style="font-size:1.5rem;color:#f29491">
+                请赶快与订单发布者联系，上门维修！
+              </ion-label>
+            </div>
+          </ion-card-content>
+        </ion-card>
     </ion-content>
     <ion-content *ngSwitchCase="'top_3'">
       <ion-row>
@@ -275,3 +283,4 @@
           </ion-card>
     </ion-content>
 </ion-content>
+  

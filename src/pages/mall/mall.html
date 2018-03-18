@@ -1,0 +1,163 @@
+<ion-header no-shadow no-border>
+  <ion-navbar>
+    <ion-title style="text-align:center;font-size: 1.5rem;">商城</ion-title>
+  </ion-navbar>
+    
+  <ion-toolbar>
+    <ion-segment class="top_segment" [(ngModel)]="top_segment">
+      <ion-segment-button value="top_0">
+        主界面
+      </ion-segment-button>
+      <ion-segment-button value="top_1">
+        我要开分店
+      </ion-segment-button>
+      <ion-segment-button value="top_2">
+        商城设置
+      </ion-segment-button>
+      <ion-segment-button value="top_3">
+        个人中心
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngSwitch]="top_segment">
+  <ion-content *ngSwitchCase="'top_0'">
+    <ion-row>
+      <ion-label style="font-size:0.5rem;color:#f29491;text-align: center;">公告：本界面所有店铺均来自淘宝和京东，打开店铺自动跳转到淘宝京东...</ion-label>
+    </ion-row>
+    <ion-card *ngFor="let mall of mallLists">
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-2>
+            <ion-icon style="font-size:5rem;" name="image"></ion-icon>
+          </ion-col>
+          <ion-col col-10>
+            <div>
+              <ion-label style="font-size:1.5rem;">
+                {{mall.name}}
+                <a class="top_segment">商家已认证</a>
+                <a style="color:#f29491;">排名{{mall.squenence}}</a>
+              </ion-label>
+            </div>
+            <div>
+              <ion-label style="font-size:1.5rem;">
+                店铺地址：
+                <a class="top_segment">{{mall.mallLink}}点击进入该店铺</a>
+              </ion-label>
+            </div>
+            <div>
+              <ion-label style="font-size:1.5rem;">
+                本店在：{{mall.mallAddress}}
+              </ion-label>
+            </div>
+            <div>
+              <ion-label style="font-size:1.5rem;">
+                有
+                <a class="top_segment">{{mall.applyMaintainer}}</a>
+                位售后人员
+                <a class="top_segment" tappabel (click)="applyMaintainer($event)">【申请成为该店售后人员】</a>
+              </ion-label>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+  <ion-content *ngSwitchCase="'top_1'">
+    <ion-row class="top_segment">
+      <ion-label>选择一个我上传过的品牌</ion-label>
+    </ion-row>
+    <ion-row>
+      <ion-select [(ngModel)]="logo" class="top_segment">
+        <ion-option value="quejing">雀景</ion-option>
+        <ion-option value="queyou">雀友</ion-option>
+      </ion-select>
+    </ion-row>
+    <ion-row tappable (click)="uploadNew($event)">
+      <ion-label>【上传新品牌】</ion-label>
+    </ion-row>
+    <ion-row class="top_segment">
+      <ion-label>提交网店网址</ion-label>
+    </ion-row>
+    <ion-row>
+      <ion-input border type="text"></ion-input>
+    </ion-row>
+    <ion-row>
+      <button ion-button full round>提交</button>
+    </ion-row>
+  </ion-content>
+  <ion-content *ngSwitchCase="'top_2'">
+  </ion-content>
+  <ion-content *ngSwitchCase="'top_3'">
+    <ion-row>
+      <a class="top_segment" style="padding-left:1.5rem">普通设置</a>
+    </ion-row>
+    <ion-card>
+      <ion-list>
+        <button ion-item>
+          <ion-icon class="personal-center-icon" name="checkbox" item-start></ion-icon>
+          <ion-label style="padding-left:16px">签到</ion-label>
+        </button>
+        <button ion-item>
+          <ion-icon class="personal-center-icon" name="thumbs-up" item-start></ion-icon>
+          <ion-label style="padding-left:16px">我上传的品牌评选情况</ion-label>
+        </button>
+        <button ion-item>
+          <ion-icon class="personal-center-icon" name="clipboard" item-start></ion-icon>
+          <ion-label style="padding-left:16px">我发布的订单</ion-label>
+        </button>
+        <button ion-item>
+          <ion-icon class="personal-center-icon" name="card" item-start></ion-icon>
+          <ion-label style="padding-left:16px">充值</ion-label>
+        </button>
+        <button ion-item>
+          <ion-icon class="personal-center-icon" name="home" item-start></ion-icon>
+          <ion-label style="padding-left:16px">商城设置</ion-label>
+        </button>
+      </ion-list>
+    </ion-card>
+    <ion-row>
+      <a class="top_segment" style="padding-left:1.5rem">技术员设置</a>
+      </ion-row>
+      <ion-card>
+        <ion-list>
+          <button ion-item>
+            <ion-icon class="personal-center-icon" name="checkmark-circle-outline" item-start></ion-icon>
+            <ion-label style="padding-left:16px">认证技术员</ion-label>
+          </button>
+          <button ion-item>
+            <ion-icon class="personal-center-icon" name="browsers" item-start></ion-icon>
+            <ion-label style="padding-left:16px">我的个人简历</ion-label>
+          </button>
+        </ion-list>
+      </ion-card>
+      <ion-row>
+          <a class="top_segment" style="padding-left:1.5rem">系统设置</a>
+        </ion-row>
+        <ion-card>
+          <ion-list>
+            <button ion-item>
+              <ion-icon class="personal-center-icon" name="cog" item-start></ion-icon>
+              <ion-label style="padding-left:16px">修改密码</ion-label>
+            </button>
+            <button ion-item>
+              <ion-icon class="personal-center-icon" name="notifications-outline" item-start></ion-icon>
+              <ion-label style="padding-left:16px">系统消息</ion-label>
+            </button>
+            <button ion-item>
+              <ion-icon class="personal-center-icon" name="text" item-start></ion-icon>
+              <ion-label style="padding-left:16px">留言箱(我们会第一时间给您回复)</ion-label>
+            </button>
+            <button ion-item>
+              <ion-icon class="personal-center-icon" name="trash" item-start></ion-icon>
+              <ion-label style="padding-left:16px">清理缓存</ion-label>
+            </button>
+            <button ion-item>
+              <ion-icon class="personal-center-icon" name="barcode" item-start></ion-icon>
+              <ion-label style="padding-left:16px">个人专属邀请码</ion-label>
+            </button>
+          </ion-list>
+        </ion-card>
+  </ion-content>
+</ion-content>
