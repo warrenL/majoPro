@@ -14,6 +14,12 @@ page-mall {
     .area-filter-color {
       color:black;
     }
+
+    .item-ios ion-icon[item-left], .item-ios ion-icon[item-right], .item-ios ion-icon[item-start], .item-ios ion-icon[item-end] {
+      margin-left: 0;
+      margin-top: 6px;
+      margin-bottom: 8px;
+    }
   
     .card-header-md {
       font-size: 1.6rem;

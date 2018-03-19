@@ -5,7 +5,7 @@
     <ion-row class="login-register-btn">
       <ion-col></ion-col>
       <ion-col>
-        <ion-segment [(ngModel)]="authentication" (ionChange)="segmentChanged($event)">
+        <ion-segment mode="md" [(ngModel)]="authentication" (ionChange)="segmentChanged($event)">
             <ion-segment-button value="登录" style="color:white;">
                 登录
             </ion-segment-button>
