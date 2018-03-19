@@ -44,4 +44,7 @@ export class MallPage {
 
   }
 
+  authentication(event) {
+    this.navCtrl.push('merchant-authentication-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
 }

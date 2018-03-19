@@ -30,13 +30,13 @@
       <ion-card-content>
         <ion-row>
           <ion-col col-2>
-            <ion-icon style="font-size:5rem;" name="image"></ion-icon>
+            <ion-icon style="font-size:5rem;color:#66CCFF;" name="image"></ion-icon>
           </ion-col>
           <ion-col col-10>
             <div>
               <ion-label style="font-size:1.5rem;">
                 {{mall.name}}
-                <a class="top_segment">商家已认证</a>
+                <a class="top_segment" tappable (click)="authentication($event)">商家已认证</a>
                 <a style="color:#f29491;">排名{{mall.squenence}}</a>
               </ion-label>
             </div>
@@ -62,6 +62,20 @@
           </ion-col>
         </ion-row>
       </ion-card-content>
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>{{mall.good}}</div>
+          </button>
+        </ion-col>
+        <ion-col style="text-align:end;">
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-down"></ion-icon>
+            <div>{{mall.bad}}</div>
+          </button>
+        </ion-col>
+      </ion-row>
     </ion-card>
   </ion-content>
   <ion-content *ngSwitchCase="'top_1'">
@@ -87,7 +101,7 @@
       </ion-card-content>
     </ion-card>
     <ion-row>
-      <button ion-button full round style="width:70%;margin-left:15%;" (click)="submit($event)">提交</button>
+      <button ion-button full round style="width:70%;margin-left:15%;background-color:#66CCFF;color:#2e4553;" (click)="submit($event)">提交</button>
     </ion-row>
   </ion-content>
   <ion-content *ngSwitchCase="'top_2'">
