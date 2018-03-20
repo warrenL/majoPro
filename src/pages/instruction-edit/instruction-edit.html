@@ -1,0 +1,22 @@
+<ion-header no-shadow no-border>
+    <ion-navbar>
+      <ion-title style="text-align:center;font-size: 1.5rem;">修改简介</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content>
+  <ion-grid>
+  <ion-row style="text-align:center;">
+    <ion-col>
+    <textarea style="background-color:#66CCFF;color:white;width:80%;height:800%"></textarea>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar style="text-align:center;">
+    <button ion-button round (click)="save($event)" style="background-color:#66CCFF;color:#2e4553;width:60%;">保存并修改</button>
+  </ion-toolbar>
+</ion-footer>

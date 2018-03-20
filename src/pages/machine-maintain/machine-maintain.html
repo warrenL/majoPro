@@ -209,23 +209,23 @@
       </ion-row>
       <ion-card>
         <ion-list>
-          <button ion-item>
+          <button tappable ion-item>
             <ion-icon class="personal-center-icon" name="checkbox" item-start></ion-icon>
             <ion-label style="padding-left:3rem">签到</ion-label>
           </button>
-          <button ion-item>
+          <button ion-item tappable (click)="editInstruction($event)">
             <ion-icon class="personal-center-icon" name="thumbs-up" item-start></ion-icon>
             <ion-label style="padding-left:3rem">我上传的品牌评选情况</ion-label>
           </button>
-          <button ion-item>
+          <button tappable ion-item (click)="myPublishOrders($event)">
             <ion-icon class="personal-center-icon" name="clipboard" item-start></ion-icon>
             <ion-label style="padding-left:3rem">我发布的订单</ion-label>
           </button>
-          <button ion-item>
+          <button tappable ion-item (click)="chongzhi($event)">
             <ion-icon class="personal-center-icon" name="card" item-start></ion-icon>
             <ion-label style="padding-left:3rem">充值</ion-label>
           </button>
-          <button ion-item>
+          <button tappable ion-item>
             <ion-icon class="personal-center-icon" name="home" item-start></ion-icon>
             <ion-label style="padding-left:3rem">商城设置</ion-label>
           </button>

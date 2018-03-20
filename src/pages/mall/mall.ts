@@ -18,6 +18,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class MallPage {
 
   top_segment: string = 'top_0';
+  sub_top_segment: string = 'sub_top_0';
 
   mallLists = [
     {name:"雀景", isapply:"true", squenence:"1", mallLink:"quejing.taobao.com", mallAddress:"湖北省武汉市东西湖区金银湖街道", applyMaintainer:"3", good:"556", bad:"50"},
@@ -49,6 +50,11 @@ export class MallPage {
   }
 
   gotoTobao(mallLink: string, event) {
-    window.open('http://baidu.com', '_blank', 'location=yes');
+    window.open("https://"+mallLink, '_blank', 'location=yes');
+  }
+
+  // 申请中的区域售后人员列表
+  listemployee(event) {
+    this.navCtrl.push('applying-employees-page', null, {animation: 'md-transition', direction: 'forward'});
   }
 }

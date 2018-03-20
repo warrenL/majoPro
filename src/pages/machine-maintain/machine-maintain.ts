@@ -71,4 +71,18 @@ export class MachineMaintainPage {
     this.navCtrl.push('publish-neworder-page', null, {animation: 'md-transition', direction: 'forward'});
   }
 
+  editInstruction(event) {
+    console.log("instruction edit.");
+    this.navCtrl.push('instruction-edit-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
+  myPublishOrders($event) {
+    console.log("my publish order list.");
+    this.navCtrl.push('publish-orderlist-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
+  chongzhi(event) {
+    console.log("chongzhi.");
+    this.navCtrl.push('chongzhi-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
 }

@@ -34,25 +34,25 @@
           </ion-col>
           <ion-col col-10>
             <div>
-              <ion-label style="font-size:1.5rem;">
+              <ion-label style="font-size:1rem;">
                 {{mall.name}}
                 <a class="top_segment" tappable (click)="authentication($event)">商家已认证</a>
                 <a style="color:#f29491;">排名{{mall.squenence}}</a>
               </ion-label>
             </div>
             <div>
-              <ion-label style="font-size:1.5rem;">
+              <ion-label style="font-size:1rem;">
                 店铺地址：
                 <a class="top_segment" tappable (click)="gotoTobao(mall.mallLink, $event)">{{mall.mallLink}}点击进入该店铺</a>
               </ion-label>
             </div>
             <div>
-              <ion-label style="font-size:1.5rem;">
+              <ion-label style="font-size:1rem;">
                 本店在：{{mall.mallAddress}}
               </ion-label>
             </div>
             <div>
-              <ion-label style="font-size:1.5rem;">
+              <ion-label style="font-size:1rem;">
                 有
                 <a class="top_segment">{{mall.applyMaintainer}}</a>
                 位售后人员
@@ -65,14 +65,14 @@
       <ion-row>
         <ion-col>
           <button ion-button icon-left clear small>
-            <ion-icon name="thumbs-up"></ion-icon>
-            <div>{{mall.good}}</div>
+            <ion-icon name="thumbs-up" style="color:#66CCFF;"></ion-icon>
+            <div style="color:#66CCFF;">{{mall.good}}</div>
           </button>
         </ion-col>
         <ion-col style="text-align:end;">
           <button ion-button icon-left clear small>
-            <ion-icon name="thumbs-down"></ion-icon>
-            <div>{{mall.bad}}</div>
+            <ion-icon name="thumbs-down" style="color:#66CCFF;"></ion-icon>
+            <div style="color:#66CCFF;">{{mall.bad}}</div>
           </button>
         </ion-col>
       </ion-row>
@@ -105,6 +105,243 @@
     </ion-row>
   </ion-content>
   <ion-content *ngSwitchCase="'top_2'">
+    <ion-segment mode="md" class="top_segment" [(ngModel)]="sub_top_segment">
+      <ion-segment-button value="sub_top_0">
+        店铺设置
+      </ion-segment-button>
+      <ion-segment-button value="sub_top_1">
+        个人设置
+      </ion-segment-button>
+    </ion-segment>
+    <ion-content [ngSwitch]="sub_top_segment">
+      <ion-content *ngSwitchCase="'sub_top_0'">
+        <ion-card style="background-color:#acf594">
+          <ion-card-content>
+            <ion-row>
+              <ion-col style="text-align:start;">
+                <a style="color:white;">【店铺排名7】</a>
+              </ion-col>
+              <ion-col style="text-align:end;">
+                <ion-icon name="refresh" style="color:white;"></ion-icon>
+                <a style="color:white;">切换其他店铺</a>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-2>
+                <ion-icon style="color:white;margin-top:50%;font-size:6rem;" name="image"></ion-icon>
+              </ion-col>
+              <ion-col col-10>
+                <div>
+                  <ion-label style="font-size:1.5rem;color:white;padding-left:6px;">
+                    雀王
+                    <a class="top_segment" style="color:white;" tappable (click)="authentication($event)">【商标未认证】</a>
+                    <a class="top_segment" style="color:white;">【现在去认证】</a>
+                  </ion-label>
+                </div>
+                <div>
+                  <button ion-button icon-left clear small>
+                    <ion-icon name="medal" style="color:white;"></ion-icon>
+                    <div style="color:white;">2</div>
+                  </button>
+                  <button ion-button icon-left clear small>
+                    <ion-icon name="thumbs-up" style="color:white;"></ion-icon>
+                    <div style="color:white;">30</div>
+                  </button>
+                  <button ion-button icon-left clear small>
+                    <ion-icon name="thumbs-down" style="color:white;"></ion-icon>
+                    <div style="color:white;">1</div>
+                  </button>
+                </div>
+                <div>
+                  <ion-label style="font-size:1.5rem;color:white;" tappable (click)="listemployee($event)">
+                    【申请中的区域售后人员列表】
+                  </ion-label>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-content>
+            <ion-row style="text-align:center;">
+              <ion-label>
+                湖北省武汉市东西湖区金银湖街道
+              </ion-label>
+            </ion-row>
+            <ion-row style="text-align:center;">
+              <ion-label style="font-size:1.8rem;">
+                已有代理区域查询，共3名售后代理
+              </ion-label>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <ion-card>
+          <ion-card-content>
+            <ion-row>
+              <ion-col col-2 style="text-align:center;">
+                <ion-icon name="contact" style="color:#1db4cc;font-size: 5rem;" item-start></ion-icon>
+              </ion-col>
+              <ion-col col-15>
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-row>
+                    <a style="color:black;">余师傅</a>
+                    <a style="color:#66CCFF;" tappable (click)="resume(maintainer.name, $event)">【简历】</a>
+                    </ion-row>
+                    <ion-row>
+                      <a style="color:#f5b0b1;float:right;">活跃度30+</a>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col col-5>
+                    <a style="color:#66CCFF;float:right;" tappable (click)="cancelSaleAuth($event)">【取消售后权】</a>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col col-2 style="text-align:center;">
+                <ion-icon name="contact" style="color:#1db4cc;font-size: 5rem;" item-start></ion-icon>
+              </ion-col>
+              <ion-col col-15>
+                <ion-row>
+                  <ion-col col-6>
+                    <ion-row>
+                    <a style="color:black;">余师傅</a>
+                    <a style="color:#66CCFF;" tappable (click)="resume(maintainer.name, $event)">【简历】</a>
+                    </ion-row>
+                    <ion-row>
+                      <a style="color:#f5b0b1;float:right;">活跃度30+</a>
+                    </ion-row>
+                  </ion-col>
+                  <ion-col col-5>
+                    <a style="color:#66CCFF;float:right;" tappable (click)="cancelSaleAuth($event)">【取消售后权】</a>
+                  </ion-col>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col style="text-align:end;">
+                <a>上一页</a>
+              </ion-col>
+              <ion-col style="text-align:center;">
+                <a>当前页1</a>
+              </ion-col>
+              <ion-col>
+                <a>下一页</a>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <ion-row style="text-align:center;">
+          <ion-label>
+              <a>【修改店铺网址】</a>
+          </ion-label>
+        </ion-row>
+        <ion-row style="text-align:center;">
+          <ion-label>
+            雀王店铺地址：<a>【quewang.taobao.com】</a>
+          </ion-label>
+        </ion-row>
+      </ion-content>
+      <ion-content *ngSwitchCase="'sub_top_1'">
+        <ion-row>
+          <ion-label style="color:#66CCFF;padding-left:1rem;">【已经获得的店铺区域售后权】</ion-label>
+        </ion-row>
+        <ion-card>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col style="text-align:start;" col-6>
+                  <a style="color:#2e4553;font-size:1.8rem;">1.雀景</a>
+                  <a style="padding-left:4px;color:#2e4553;font-size:1.8rem;">店铺排名1</a>
+                </ion-col>
+                <ion-col style="text-align:end;" col-6>
+                  <a style="color:#f29491;font-size:1.5rem;">【退出该店售后名单】</a>
+                </ion-col>
+              </ion-row>
+              <div style="padding-left:1.5rem;">
+                <ion-label style="color:#2e4553;">申请售后区域</ion-label>
+                <ion-label style="color:#2e4553;">湖北省 武汉市 东西湖区 金山大道镇</ion-label>
+              </div>
+            </ion-grid>
+            <ion-grid>
+              <ion-row>
+                <ion-col style="text-align:start;" col-6>
+                  <a style="color:#2e4553;font-size:1.8rem;">2.雀王</a>
+                  <a style="padding-left:4px;color:#2e4553;font-size:1.8rem;">店铺排名2</a>
+                </ion-col>
+                <ion-col style="text-align:end;" col-6>
+                  <a style="color:#f29491;font-size:1.5rem;">【退出该店售后名单】</a>
+                </ion-col>
+              </ion-row>
+              <div style="padding-left:1.5rem;">
+                <ion-label style="color:#2e4553;">申请售后区域</ion-label>
+                <ion-label style="color:#2e4553;">湖北省 武汉市 东西湖区 金山大道镇</ion-label>
+              </div>
+            </ion-grid>
+            <ion-row>
+              <ion-col style="text-align:end;">
+                <a>上一页</a>
+              </ion-col>
+              <ion-col style="text-align:center;">
+                <a>当前页1</a>
+              </ion-col>
+              <ion-col>
+                <a>下一页</a>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+        <ion-row>
+          <ion-label style="color:#66CCFF;padding-left:1rem;">【正在申请成为售后人员的店铺】</ion-label>
+        </ion-row>
+        <ion-card>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col style="text-align:start;" col-6>
+                  <a style="color:#2e4553;font-size:1.8rem;">1.雀景</a>
+                  <a style="padding-left:4px;color:#2e4553;font-size:1.8rem;">店铺排名1</a>
+                </ion-col>
+                <ion-col style="text-align:end;" col-6>
+                  <a style="color:#f29491;font-size:1.5rem;">【退出该店售后名单】</a>
+                </ion-col>
+              </ion-row>
+              <div style="padding-left:1.5rem;">
+                <ion-label><a style="color:#2e4553;">申请负责售后的区域</a><a style="float:right;color:grey;">申请日期2017.07.07</a></ion-label>
+                <ion-label style="color:#2e4553;">湖北省 武汉市 东西湖区 金山大道镇</ion-label>
+              </div>
+            </ion-grid>
+            <ion-grid>
+              <ion-row>
+                <ion-col style="text-align:start;" col-6>
+                  <a style="color:#2e4553;font-size:1.8rem;">2.雀王</a>
+                  <a style="padding-left:4px;color:#2e4553;font-size:1.8rem;">店铺排名2</a>
+                </ion-col>
+                <ion-col style="text-align:end;" col-6>
+                  <a style="color:#f29491;font-size:1.5rem;">【退出该店售后名单】</a>
+                </ion-col>
+              </ion-row>
+              <div style="padding-left:1.5rem;">
+                <ion-label><a style="color:#2e4553;">申请负责售后的区域</a><a style="float:right;color:grey;">申请日期2017.07.07</a></ion-label>
+                <ion-label style="color:#2e4553;">湖北省 武汉市 东西湖区 金山大道镇</ion-label>
+              </div>
+            </ion-grid>
+            <ion-row>
+              <ion-col style="text-align:end;">
+                <a>上一页</a>
+              </ion-col>
+              <ion-col style="text-align:center;">
+                <a>当前页1</a>
+              </ion-col>
+              <ion-col>
+                <a>下一页</a>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+      </ion-content>
+    </ion-content>
   </ion-content>
   <ion-content *ngSwitchCase="'top_3'">
     <ion-row>

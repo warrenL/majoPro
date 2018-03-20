@@ -1,0 +1,47 @@
+<!--
+  Generated template for the ApplyingEmployeesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <ion-title style="color:#1db4cc;text-align:center;font-size: 1.5rem;">收到的服务申请</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding="fasle">
+    <ion-card *ngFor="let maintainer of maintainerList">
+      <ion-card-content>
+        <ion-row>
+          <ion-col col-2 style="text-align:center;">
+            <ion-icon name="contact" style="color:#1db4cc;font-size: 3rem;" item-start></ion-icon>
+          </ion-col>
+          <ion-col col-15>
+            <ion-row>
+              <ion-col col-6>
+                <a style="color:black;">{{maintainer.name}}</a>
+                <a style="color:#66CCFF;" tappable (click)="resume(maintainer.name, $event)">【简历】</a>
+              </ion-col>
+              <ion-col col-5>
+                <a style="color:#f5b0b1;float:right;">{{maintainer.hotpoint}}</a>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+        <ion-row style="padding-left:2rem;">
+          <ion-label>湖北省 武汉市 东西湖区 金银湖街道</ion-label>
+        </ion-row>
+        <ion-row style="padding-left:2rem;">
+          <ion-label>
+            <a>申请日期2017.05.10</a>
+            <a style="text-align:end;">
+              <button ion-button round style="height:60%;top:-20%;width:10%;">通过</button>
+              <button ion-button round style="height:60%;top:-20%;width:10%;">拒绝</button>
+            </a>
+          </ion-label>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+  
