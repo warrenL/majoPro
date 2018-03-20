@@ -43,7 +43,7 @@
             <div>
               <ion-label style="font-size:1.5rem;">
                 店铺地址：
-                <a class="top_segment">{{mall.mallLink}}点击进入该店铺</a>
+                <a class="top_segment" tappable (click)="gotoTobao(mall.mallLink, $event)">{{mall.mallLink}}点击进入该店铺</a>
               </ion-label>
             </div>
             <div>
