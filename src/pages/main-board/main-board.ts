@@ -41,7 +41,7 @@ export class MainBoardPage {
   }
 
   topTen(event) {
-
+    this.navCtrl.push('top-ten-page', null, {animation: 'md-transition', direction: 'forward'});
   }
 
   adArea(event) {

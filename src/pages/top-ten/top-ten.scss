@@ -1,5 +1,5 @@
-page-machine-maintain {
-  $header-color-bg: #eee;
+page-top-ten {
+    $header-color-bg: #eee;
   $animation-duration: 0.4s;
 
   .toolbar-md-light .toolbar-background-md {
@@ -13,6 +13,10 @@ page-machine-maintain {
 
   .area-filter-color {
     color:black;
+  }
+
+  .item-ios {
+    padding-left: 0px;
   }
 
   .card-header-md {
@@ -98,4 +102,7 @@ page-machine-maintain {
       }
     }
   }
+    .toolbar-ios .segment-button {
+        max-width: 100%;
+    }
 }
