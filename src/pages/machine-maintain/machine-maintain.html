@@ -225,7 +225,7 @@
             <ion-icon class="personal-center-icon" name="card" item-start></ion-icon>
             <ion-label style="padding-left:3rem">充值</ion-label>
           </button>
-          <button tappable ion-item>
+          <button tappable ion-item (click)="mallSetting($event)">
             <ion-icon class="personal-center-icon" name="home" item-start></ion-icon>
             <ion-label style="padding-left:3rem">商城设置</ion-label>
           </button>
@@ -236,11 +236,11 @@
         </ion-row>
         <ion-card>
           <ion-list>
-            <button ion-item>
+            <button tappable ion-item (click)="applyMaintainer($event)">
               <ion-icon class="personal-center-icon" name="checkmark-circle-outline" item-start></ion-icon>
               <ion-label style="padding-left:3rem">认证技术员</ion-label>
             </button>
-            <button ion-item>
+            <button tappable ion-item (click)="myResume($event)">
               <ion-icon class="personal-center-icon" name="browsers" item-start></ion-icon>
               <ion-label style="padding-left:3rem">我的个人简历</ion-label>
             </button>
@@ -255,11 +255,11 @@
                 <ion-icon class="personal-center-icon" name="cog" item-start></ion-icon>
                 <ion-label style="padding-left:3rem">修改密码</ion-label>
               </button>
-              <button ion-item>
+              <button tappable ion-item (click)="systemMessage($event)">
                 <ion-icon class="personal-center-icon" name="notifications-outline" item-start></ion-icon>
                 <ion-label style="padding-left:3rem">系统消息</ion-label>
               </button>
-              <button ion-item>
+              <button tappable ion-item (click)="mailBox($event)">
                 <ion-icon class="personal-center-icon" name="text" item-start></ion-icon>
                 <ion-label style="padding-left:3rem">留言箱(我们会第一时间给您回复)</ion-label>
               </button>
@@ -267,7 +267,7 @@
                 <ion-icon class="personal-center-icon" name="trash" item-start></ion-icon>
                 <ion-label style="padding-left:3rem">清理缓存</ion-label>
               </button>
-              <button ion-item>
+              <button tappable ion-item (click)="fenxiang($event)">
                 <ion-icon class="personal-center-icon" name="barcode" item-start></ion-icon>
                 <ion-label style="padding-left:3rem">个人专属邀请码</ion-label>
               </button>

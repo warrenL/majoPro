@@ -85,4 +85,34 @@ export class MachineMaintainPage {
     console.log("chongzhi.");
     this.navCtrl.push('chongzhi-page', null, {animation: 'md-transition', direction: 'forward'});
   }
+
+  mallSetting(event) {
+    console.log("mall setting.");
+    this.navCtrl.push('mall-setting-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
+  applyMaintainer(event) {
+    console.log("apply maintainer.");
+    this.navCtrl.push('auth-maintainer-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
+  myResume(event) {
+    console.log("my Resume.");
+    this.navCtrl.push('resume-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
+  systemMessage(event) {
+    console.log("system Message.");
+    this.navCtrl.push('system-message-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
+  mailBox(event) {
+    console.log("mail box.");
+    this.navCtrl.push('mailbox-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
+  fenxiang(event) {
+    console.log("share code.");
+    this.navCtrl.push('share-code-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
 }
