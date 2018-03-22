@@ -17,7 +17,7 @@
       </ion-segment-button>
       <ion-segment-button style="white-space:normal;" value="top_1">
         <ion-row style="height: 30%;position: relative;left: 10%;">2019品牌点赞前十</ion-row>
-        <ion-row style="height:30%;text-align:center;position: relative;left: 25%;">已开始争夺</ion-row>
+        <ion-row style="height:30%;text-align:center;position: relative;left: 18%;"><ion-icon style="font-size:1.4rem;" name="rose"></ion-icon>已开始争夺<ion-icon style="font-size:1.4rem;" name="rose"></ion-icon></ion-row>
       </ion-segment-button>
       <ion-segment-button value="top_2">
         个人中心
@@ -25,7 +25,6 @@
     </ion-segment>
   </ion-toolbar>
 </ion-header>
-
 
 <ion-content>
   <ion-content [ngSwitch]="top_segment">  
@@ -48,13 +47,13 @@
               <div>
                 <ion-label style="font-size:1rem;color:#2e4553;font-size:1.4rem;">
                   雀王
-                  <a class="top_segment" style="color:#2e4553;" tappable (click)="authentication($event)">（品牌上传者手机尾号9090）</a>
-                  <a class="top_segment" style="color:#66CCFF;font-size:1.6rem;float:right;"><ion-icon style="font-size:1.6rem;" name="podium"></ion-icon>投票</a>
+                  <a class="top_segment" style="color:#2e4553;">（品牌上传者手机尾号9090）</a>
+                  <a class="top_segment" style="color:#66CCFF;font-size:1.6rem;float:right;" tappable (click)="vote($event)"><ion-icon style="font-size:1.6rem;" name="podium"></ion-icon>投票</a>
                 </ion-label>
               </div>
               <div>
                 <a class="top_segment" style="color:#f29491;font-size:1rem;" tappable (click)="authentication($event)">【现在去认证商标】</a>
-                <a class="top_segment" style="color:#f29491;font-size:1rem;">【修改简介】</a>
+                <a class="top_segment" style="color:#f29491;font-size:1rem;" tappable (click)="RefineInstruction($event)">【修改简介】</a>
                 <a class="top_segment" style="color:#f29491;font-size:1rem;">【品牌已认证/未认证】</a>
               </div>
               <ion-item>
@@ -125,7 +124,7 @@
       </ion-card>
       <ion-row>
         <ion-col style="text-align:center;color:#66CCFF">
-          <button ion-button round clear>【上传一个新品牌】</button>
+          <button ion-button round clear tappable (click)="uploadNew($event)">【上传一个新品牌】</button>
         </ion-col>
       </ion-row>
       <ion-row>
@@ -141,7 +140,76 @@
       </ion-row>
     </ion-content>
     <ion-content *ngSwitchCase="'top_1'">
+      <ion-card>
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-2>
+              <ion-icon style="color:#2e4553;margin-top:10%;font-size:6rem;" name="image"></ion-icon>
+            </ion-col>
+            <ion-col col-10>
+              <div>
+                <ion-label style="font-size:1rem;color:#2e4553;font-size:1.4rem;">
+                  雀王
+                  <a class="top_segment" style="color:#2e4553;">（品牌上传者手机尾号9090）</a>
+                  <a class="top_segment" style="color:#66CCFF;font-size:1.6rem;float:right;"><ion-icon style="font-size:2rem;" name="paper"></ion-icon></a>
+                </ion-label>
+              </div>
+              <ion-row>
+                <button ion-button icon-left clear small item-start>
+                  <ion-icon name="thumbs-up" style="color:#66CCFF;padding-left: 0;"></ion-icon>
+                  <div style="color:#66CCFF;">30</div>
+                </button>
+                <button ion-button icon-left clear small>
+                  <ion-icon name="thumbs-down" style="color:#66CCFF;"></ion-icon>
+                  <div style="color:#66CCFF;">2</div>
+                </button>
+                <button ion-button icon-left clear small>
+                  <ion-icon name="rose" style="color:#66CCFF;"></ion-icon>
+                  <div style="color:#66CCFF;">1</div>
+                </button>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-content>
+          <ion-row>
+            <ion-col col-2>
+              <ion-icon style="color:#2e4553;margin-top:10%;font-size:6rem;" name="image"></ion-icon>
+            </ion-col>
+            <ion-col col-10>
+              <div>
+                <ion-label style="font-size:1rem;color:#2e4553;font-size:1.4rem;">
+                  雀王
+                  <a class="top_segment" style="color:#2e4553;">（品牌上传者手机尾号9090）</a>
+                  <a class="top_segment" style="color:#66CCFF;font-size:1.6rem;float:right;"><ion-icon style="font-size:2rem;" name="paper"></ion-icon></a>
+                </ion-label>
+              </div>
+              <ion-row>
+                <button ion-button icon-left clear small item-start>
+                  <ion-icon name="thumbs-up" style="color:#66CCFF;padding-left: 0;"></ion-icon>
+                  <div style="color:#66CCFF;">30</div>
+                </button>
+                <button ion-button icon-left clear small>
+                  <ion-icon name="thumbs-down" style="color:#66CCFF;"></ion-icon>
+                  <div style="color:#66CCFF;">2</div>
+                </button>
+                <button ion-button icon-left clear small>
+                  <ion-icon name="rose" style="color:#66CCFF;"></ion-icon>
+                  <div style="color:#66CCFF;">1</div>
+                </button>
+              </ion-row>
+            </ion-col>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
     </ion-content>
+    <ion-footer style="background-color:#66CCFF" *ngSwitchCase="'top_1'">
+      <ion-toolbar style="background-color:#66CCFF">
+        <ion-title style="background-color:#66CCFF;color:black;"><a style="background-color:#66CCFF;color:black;">今年（2018）被点赞最多的十大品牌</a></ion-title>
+      </ion-toolbar>
+    </ion-footer>
     <ion-content *ngSwitchCase="'top_2'">
         <ion-row>
           <a class="top_segment" style="padding-left:1.5rem">普通设置</a>

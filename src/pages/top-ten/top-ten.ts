@@ -24,6 +24,26 @@ export class TopTenPage {
     console.log('ionViewDidLoad TopTenPage');
   }
 
+  uploadNew(event) {
+    console.log("upload new.");
+    this.navCtrl.push('upload-new-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
+  vote(event) {
+    console.log("vote.");
+    this.navCtrl.push('merchant-authentication-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
+  authentication(event) {
+    console.log("authentication.");
+    this.navCtrl.push('merchant-authentication-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
+  RefineInstruction(event) {
+    console.log("instruction edit.");
+    this.navCtrl.push('instruction-edit-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
   editInstruction(event) {
     console.log("instruction edit.");
     this.navCtrl.push('instruction-edit-page', null, {animation: 'md-transition', direction: 'forward'});

@@ -25,4 +25,8 @@ export class MallSettingPage {
     console.log('ionViewDidLoad MallSettingPage');
   }
 
+  authentication(event) {
+    this.navCtrl.push('merchant-authentication-page', null, {animation: 'md-transition', direction: 'forward'});
+  }
+
 }

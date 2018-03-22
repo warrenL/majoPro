@@ -115,3 +115,11 @@ ion-app.ios [padding] .scroll-content {
 weekview .scroll-content {
   padding: 0px !important;
 }
+
+.toolbar-title-ios {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 300;
+  color: #66CCFF;
+  pointer-events: auto;
+}
