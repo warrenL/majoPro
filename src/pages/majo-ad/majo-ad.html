@@ -1,0 +1,277 @@
+<!--
+  Generated template for the MajoAdPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title style="text-align:center;font-size: 1.5rem;">麻将机行业广告区</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-segment mode="md" class="top_segment" [(ngModel)]="top_segment">
+      <ion-segment-button value="top_0">
+        广告大厅
+      </ion-segment-button>
+      <ion-segment-button value="top_1">
+        发布新广告
+      </ion-segment-button>
+      <ion-segment-button value="top_2">
+        发布过的广告
+      </ion-segment-button>
+      <ion-segment-button value="top_3">
+        个人中心
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [ngSwitch]="top_segment">
+  <ion-content *ngSwitchCase="'top_0'">
+    <ion-searchbar
+    style="width:90%;padding-left:12%;background-color:white;text-align:center;"
+    [(ngModel)]="myInput"
+    [showCancelButton]="true"
+    placeholder="搜索公司或分类的关键词"
+    (ionInput)="onInput($event)"
+    (ionCancel)="onCancel($event)"></ion-searchbar>
+    <ion-card *ngFor="let ad of majoLists">
+      <ion-card-content style="padding-left:8%;">
+        <ion-row>
+          <ion-label style="font-size:1.8rem">{{ad.name}}</ion-label>
+          <ion-label>分类标签：麻将机批发</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label style="color:grey;white-space:normal">公司业务说明：广州市雀康机电设备有限公司，麻将机十大品牌，第三届世界麻将锦标赛指定比赛器材，世界麻将组织比赛器材委员会成员，申请麻将非物质文华遗产...<a>展开</a></ion-label>
+        </ion-row>
+        <ion-row>
+          <div class="imgContainer" *ngIf="images.length>0">
+            <!--一张图片-->
+            <div class="oneImgContainer" *ngIf="images.length===1">
+              <button (click)="goToViewLargePictureCtrl($event, images)">
+                <img [src]=images[0].big>
+              </button>
+            </div>
+          
+            <!--四张图片-->
+            <div class="fourImgContainer" *ngIf="images.length===4">
+              <button class="manyBtn" *ngFor="let image of images" (click)="goToViewLargePictureCtrl($event, images)">
+                <img [src]=image.big>
+              </button>
+              <div class="clearFloat"></div>
+            </div>
+          
+            <!--多张图片-->
+            <div class="manyImgContainer" *ngIf="images.length!==1 && images.length!==4">
+              <button class="manyBtn" *ngFor="let image of images" (click)="goToViewLargePictureCtrl($event, images)">
+                <img [src]=image.big>
+              </button>
+              <div class="clearFloat"></div>
+            </div>
+          </div>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+  <ion-content *ngSwitchCase="'top_1'">
+    <ion-card>
+      <ion-card-content style="padding-left:8%">
+        <ion-row>
+          <ion-label style="color:#66CCFF">公司名称</ion-label>
+          <ion-input type="text" placeholder="请输入品牌名称"></ion-input>
+        </ion-row>
+        <ion-row>
+          <div class="imgContainer" *ngIf="images.length>0">
+            <!--一张图片-->
+            <div class="oneImgContainer" *ngIf="images.length===1">
+              <button (click)="goToViewLargePictureCtrl($event, images)">
+                <img [src]=images[0].big>
+              </button>
+            </div>
+          
+            <!--四张图片-->
+            <div class="fourImgContainer" *ngIf="images.length===4">
+              <button class="manyBtn" *ngFor="let image of images" (click)="goToViewLargePictureCtrl($event, images)">
+                <img [src]=image.big>
+              </button>
+              <div class="clearFloat"></div>
+            </div>
+          
+            <!--多张图片-->
+            <div class="manyImgContainer" *ngIf="images.length!==1 && images.length!==4">
+              <button class="manyBtn" *ngFor="let image of images" (click)="goToViewLargePictureCtrl($event, images)">
+                <img [src]=image.big>
+              </button>
+              <div class="clearFloat"></div>
+            </div>
+          </div>
+        </ion-row>
+        <ion-row>
+          <ion-label style="color:#66CCFF">填写广告词及联系方式</ion-label>
+        </ion-row>
+        <ion-row>
+          <textarea placeholder="请填写广告词"></textarea>
+        </ion-row>
+        <ion-row>
+          <ion-label style="color:#66CCFF">设置扣费标准<a>-</a>()<a>+</a>钻/天</ion-label>
+        </ion-row>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-2>
+              <a style="font-size:1rem;color:#f5b0b1">说明：</a>
+            </ion-col>
+            <ion-col col-11>
+              <a style="font-size:1rem;color:#f5b0b1">1.扣费金额越高，排名越靠前<br/></a>
+              <a style="font-size:1rem;color:#f5b0b1">2.发布后可随时更改扣费标准，更改后第二天生效<br/></a>
+              <a style="font-size:1rem;color:#f5b0b1">3.每次最少增加或减少5钻</a>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-row>
+          <ion-label style="color:#66CCFF">选择广告分类标签<a style="font-size:1rem;color:#66CCFF">(正确的广告标签关键词更容易被搜索到)</a></ion-label>
+        </ion-row>
+        <ion-row>
+          <a *ngFor="let majoLabel of majoLabels">{{majoLabel.name}}</a>
+        </ion-row>
+        <ion-row>
+          <ion-label style="color:#66CCFF">上传新标签<a style="font-size:1rem;color:#66CCFF">(广告必须上架，这个新标签才能被搜索到)</a></ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-input type="text" placeholder="编辑新标签"></ion-input>
+          <ion-label>【使用这个新标签】</ion-label>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+    <ion-row>
+        <ion-col style="text-align:center;">
+          <button ion-button round style="width:80%;background-color:#66CCFF;color:#2e4553;">发布</button>
+        </ion-col>
+      </ion-row>
+  </ion-content>
+  <ion-content *ngSwitchCase="'top_2'">
+    <ion-card *ngFor="let myAd of myMajoLists">
+      <ion-card-content style="padding-left:8%;">
+        <ion-row>
+          <ion-label style="color: #66CCFF;font-size:1.8rem;">当前广告排名{{myAd.level}}</ion-label>
+          <ion-label style="color: #66CCFF;">分类标签：麻将机批发</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label style="color: #2e4553;font-size:1.8rem;">{{myAd.name}}</ion-label>
+        </ion-row>
+        <ion-row>
+          <ion-label style="color:grey;white-space:normal">公司业务说明：广州市雀康机电设备有限公司，麻将机十大品牌，第三届世界麻将锦标赛指定比赛器材，世界麻将组织比赛器材委员会成员，申请麻将非物质文华遗产...<a>展开</a></ion-label>
+        </ion-row>
+        <ion-row>
+          <div class="imgContainer" *ngIf="images.length>0">
+            <!--一张图片-->
+            <div class="oneImgContainer" *ngIf="images.length===1">
+              <button (click)="goToViewLargePictureCtrl($event, images)">
+                <img [src]=images[0].big>
+              </button>
+            </div>
+          
+            <!--四张图片-->
+            <div class="fourImgContainer" *ngIf="images.length===4">
+              <button class="manyBtn" *ngFor="let image of images" (click)="goToViewLargePictureCtrl($event, images)">
+                <img [src]=image.big>
+              </button>
+              <div class="clearFloat"></div>
+            </div>
+          
+            <!--多张图片-->
+            <div class="manyImgContainer" *ngIf="images.length!==1 && images.length!==4">
+              <button class="manyBtn" *ngFor="let image of images" (click)="goToViewLargePictureCtrl($event, images)">
+                <img [src]=image.big>
+              </button>
+              <div class="clearFloat"></div>
+            </div>
+          </div>
+        </ion-row>
+        <ion-row>
+           <ion-label style="color:#66CCFF;">当前扣费标准{{myAd.amount}}钻/天</ion-label>
+           <ion-label style="color:grey;">{{myAd.status}}</ion-label>
+        </ion-row>
+        <ion-row>
+          <a style="color:#f5b0b1;">【修改说明】</a>
+          <a style="color:#f5b0b1;">【上架】</a>
+          <a style="color:#f5b0b1;">【下架】</a>
+          <a style="color:#f5b0b1;">【删除】</a>
+          <a style="color:#f5b0b1;">【更改扣费数量】</a>
+          <a style="color:#f5b0b1;">【更改公司名称】</a>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
+  <ion-content *ngSwitchCase="'top_3'">
+    <ion-row>
+      <a class="top_segment" style="padding-left:1.5rem">普通设置</a>
+    </ion-row>
+    <ion-card>
+      <ion-list>
+        <button tappable ion-item>
+          <ion-icon class="personal-center-icon" name="checkbox" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">签到</ion-label>
+        </button>
+        <button ion-item tappable (click)="editInstruction($event)">
+          <ion-icon class="personal-center-icon" name="thumbs-up" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">我上传的品牌评选情况</ion-label>
+        </button>
+        <button tappable ion-item (click)="myPublishOrders($event)">
+          <ion-icon class="personal-center-icon" name="clipboard" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">我发布的订单</ion-label>
+        </button>
+        <button tappable ion-item (click)="chongzhi($event)">
+          <ion-icon class="personal-center-icon" name="card" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">充值</ion-label>
+        </button>
+        <button tappable ion-item (click)="mallSetting($event)">
+          <ion-icon class="personal-center-icon" name="home" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">商城设置</ion-label>
+        </button>
+      </ion-list>
+    </ion-card>
+    <ion-row>
+      <a class="top_segment" style="padding-left:1.5rem">技术员设置</a>
+    </ion-row>
+    <ion-card>
+      <ion-list>
+        <button tappable ion-item (click)="applyMaintainer($event)">
+          <ion-icon class="personal-center-icon" name="checkmark-circle-outline" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">认证技术员</ion-label>
+        </button>
+        <button tappable ion-item (click)="myResume($event)">
+          <ion-icon class="personal-center-icon" name="browsers" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">我的个人简历</ion-label>
+        </button>
+      </ion-list>
+    </ion-card>
+    <ion-row>
+      <a class="top_segment" style="padding-left:1.5rem">系统设置</a>
+    </ion-row>
+    <ion-card>
+      <ion-list>
+        <button ion-item>
+          <ion-icon class="personal-center-icon" name="cog" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">修改密码</ion-label>
+        </button>
+        <button tappable ion-item (click)="systemMessage($event)">
+          <ion-icon class="personal-center-icon" name="notifications-outline" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">系统消息</ion-label>
+        </button>
+        <button tappable ion-item (click)="mailBox($event)">
+          <ion-icon class="personal-center-icon" name="text" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">留言箱(我们会第一时间给您回复)</ion-label>
+        </button>
+        <button ion-item>
+          <ion-icon class="personal-center-icon" name="trash" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">清理缓存</ion-label>
+        </button>
+        <button tappable ion-item (click)="fenxiang($event)">
+          <ion-icon class="personal-center-icon" name="barcode" item-start></ion-icon>
+          <ion-label style="padding-left:3rem">个人专属邀请码</ion-label>
+        </button>
+      </ion-list>
+    </ion-card>
+  </ion-content>
+</ion-content>

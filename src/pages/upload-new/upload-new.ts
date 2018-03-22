@@ -17,11 +17,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class UploadNewPage {
   images = [
-    {big:"assets/twoways.png"},
-    {big:"assets/twoways.png"},
-    {big:"assets/twoways.png"},
-    {big:"assets/twoways.png"},
-    {big:"assets/twoways.png"}
+    {big:"https://ss0.bdstatic.com/9bA1vGfa2gU2pMbfm9GUKT-w/timg?wisealaddin&sec=1521733197&di=a037aab61bcb3e989fd692e81723a0f2&size=w120&quality=100&imgtype=3&src=http%3A%2F%2Fbos.pgzs.com%2Fitunesimg%2F382201985%2F85%2F010300782f3a45f289fa04f4ba1c96ca_512x512bb.jpg"},
+    {big:"https://ss0.bdstatic.com/9bA1vGfa2gU2pMbfm9GUKT-w/timg?wisealaddin&sec=1521733197&di=a037aab61bcb3e989fd692e81723a0f2&size=w120&quality=100&imgtype=3&src=http%3A%2F%2Fbos.pgzs.com%2Fitunesimg%2F382201985%2F85%2F010300782f3a45f289fa04f4ba1c96ca_512x512bb.jpg"},
   ];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

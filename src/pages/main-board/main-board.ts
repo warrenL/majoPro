@@ -45,7 +45,7 @@ export class MainBoardPage {
   }
 
   adArea(event) {
-
+    this.navCtrl.push('majo-ad-page', null, {animation: 'md-transition', direction: 'forward'});
   }
 
   mall(event) {
@@ -53,6 +53,6 @@ export class MainBoardPage {
   }
 
   contcatUs(event) {
-
+    this.navCtrl.push('mailbox-page', null, {animation: 'md-transition', direction: 'forward'});
   }
 }
