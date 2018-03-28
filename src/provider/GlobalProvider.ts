@@ -8,35 +8,36 @@ import { Storage } from "@ionic/storage";
 @Injectable()
 export class GlobalProvider {
   static TOKEN_KEY: string = "token";
-  static USER_ID_Key: string = "userId";
+  // static USER_ID_Key: string = "userId";
   static TOKEN_TIME_Key: string = "tokenTime";
 
   token: string;
-  userId: string;
-  deviceId: string;
+  // userId: string;
+  // deviceId: string;
   tokenTime: string;
 
   constructor(private storage: Storage) {
   }
 
   initGlobal() : Promise<any> {
-    this.deviceId = "123456";
+    // this.deviceId = "123456";
     return this.storage.get(GlobalProvider.TOKEN_KEY).then((value) => {
       if (value) {
         this.token = value;
-        return this.storage.get(GlobalProvider.USER_ID_Key).then(value => {
-          if (value) {
+        return true;
+        // return this.storage.get(GlobalProvider.USER_ID_Key).then(value => {
+        //   if (value) {
 
-            return this.storage.get(GlobalProvider.USER_ID_Key).then(value => {
-              if (value) {
-                this.userId = value;
-                return true;
-              }
-            });
-          } else {
-            return false;
-          }
-        })
+        //     return this.storage.get(GlobalProvider.USER_ID_Key).then(value => {
+        //       if (value) {
+        //         this.userId = value;
+        //         return true;
+        //       }
+        //     });
+        //   } else {
+        //     return false;
+        //   }
+        // })
       } else {
         return false;
       }
@@ -57,29 +58,30 @@ export class GlobalProvider {
     this.storage.remove(GlobalProvider.TOKEN_KEY);
   }
 
-  getUserId() {
-    return this.userId;
-  }
+  // getUserId() {
+  //   return this.userId;
+  // }
 
-  setUserId(userId: string): Promise<any> {
-    this.userId = userId;
-    return this.storage.set(GlobalProvider.USER_ID_Key, userId);
-  }
+  // setUserId(userId: string): Promise<any> {
+  //   this.userId = userId;
+  //   return this.storage.set(GlobalProvider.USER_ID_Key, userId);
+  // }
 
-  removeUserId() {
-    this.userId = null;
-    this.storage.remove(GlobalProvider.USER_ID_Key);
-  }
+  // removeUserId() {
+  //   this.userId = null;
+  //   this.storage.remove(GlobalProvider.USER_ID_Key);
+  // }
 
-  getDeviceId() {
-    return this.deviceId;
-  }
+  // getDeviceId() {
+  //   return this.deviceId;
+  // }
 
-  setLoginValue(token: string, userId: string): Promise<any> {
+  setLoginValue(token: string): Promise<any> {
     return this.setToken(token).then(() => {
-      this.setUserId(userId).then(() => {
-        return true;
-      });
+      return true;
+      // this.setUserId(userId).then(() => {
+      //   return true;
+      // });
     });
   }
 

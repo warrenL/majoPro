@@ -12,11 +12,11 @@ import { GlobalProvider } from "../../GlobalProvider";
 @Injectable()
 export class HttpProvider {
   BASE_URL: string = "https://127.0.0.1";
-  CLIENT_KEY: string = "clientKey";
-  CLIENT_VALUE: string = "student-attendance";
-  DEVICE_ID_KEY: string = "deviceId";
+  // CLIENT_KEY: string = "clientKey";
+  // CLIENT_VALUE: string = "student-attendance";
+  // DEVICE_ID_KEY: string = "deviceId";
   TOKEN_KEY: string = "token";
-  API_VERSION_KEY: string = "apiVersion";
+  // API_VERSION_KEY: string = "apiVersion";
 
   constructor(private http: Http, private globalProvider: GlobalProvider) {
   }
@@ -108,12 +108,12 @@ export class HttpProvider {
 
   private getHeaders(headers: any): Headers {
     let finalHeaders = new Headers();
-    finalHeaders.append(this.CLIENT_KEY, this.CLIENT_VALUE);
-    finalHeaders.append(this.DEVICE_ID_KEY, this.globalProvider.getDeviceId());
+    // finalHeaders.append(this.CLIENT_KEY, this.CLIENT_VALUE);
+    // finalHeaders.append(this.DEVICE_ID_KEY, this.globalProvider.getDeviceId());
     finalHeaders.append('X-Requested-With', 'XMLHttpRequest');
-    if (!headers[this.API_VERSION_KEY]) {
-      finalHeaders.append(this.API_VERSION_KEY, APIVersionConstants.API_VERSION_1_0);
-    }
+    // if (!headers[this.API_VERSION_KEY]) {
+    //   finalHeaders.append(this.API_VERSION_KEY, APIVersionConstants.API_VERSION_1_0);
+    // }
     if (!headers['Content-Type']) {
       finalHeaders.append('Content-Type', 'application/json');
     }
