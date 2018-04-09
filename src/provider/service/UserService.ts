@@ -37,4 +37,12 @@ export class UserService {
       }
     });
   }
+
+  logout(): Promise<any> {
+    return this.userHttpProvider.logout().then((value) => {
+      if (value) {
+        return value;
+      }
+    })
+  }
 }

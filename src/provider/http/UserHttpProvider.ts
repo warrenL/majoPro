@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, ApplicationRef } from '@angular/core';
 
 import { GlobalProvider } from '../GlobalProvider';
 
@@ -22,8 +22,8 @@ export class UserHttpProvider {
     }
     */
 
-
-    constructor(private httpProvider: HttpProvider, private globalProvider: GlobalProvider) { }
+   listData=[];
+    constructor(private httpProvider: HttpProvider, private globalProvider: GlobalProvider, private ref: ApplicationRef) { }
 
     // 1.  登录
     //     地址:	api/users/login
@@ -110,17 +110,28 @@ export class UserHttpProvider {
       });
     }
 
-    // logout(): Promise<any> {
-    //   let url = "/users/logout";
-    //   let heads = {};
-    //   let params = {};
-    //   return this.httpProvider.httpGetWithAuth(url, heads, params).then((value) => {
-    //     console.log("Response " + value);
-    //     return value;
-    //   }).catch((error) => {
-    //     console.log(error);
-    //   });
-    // }
+    logout(): Promise<any> {
+        return this.httpProvider.getTestResponse().toPromise()
+        .then((res) => {
+          this.listData = res.json();
+          // 数据格式请看log
+          console.log("listData------->",this.listData);
+          this.ref.tick();
+          return this.listData;
+         })
+         .catch((err) => {
+          console.log(err);
+         });
+      // let url = "/users/logout";
+      // let heads = {};
+      // let params = {};
+      // return this.httpProvider.httpGetWithAuth(url, heads, params).then((value) => {
+      //   console.log("Response " + value);
+      //   return value;
+      // }).catch((error) => {
+      //   console.log(error);
+      // });
+    }
 
     // current(): Promise<any> {
     //   let url = "/users/current";
