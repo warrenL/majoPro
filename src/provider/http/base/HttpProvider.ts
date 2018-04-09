@@ -122,4 +122,9 @@ export class HttpProvider {
     }
     return finalHeaders;
   }
+
+  // 本地json文件请求
+  getTestResponse(){
+    return this.http.get("assets/json/newTest.json")
+  }
 }
