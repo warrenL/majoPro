@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserService } from '../../provider/service/UserService';
 
 /**
  * Generated class for the FindPasswordPage page.
@@ -17,7 +18,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class FindPasswordPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService) {
   }
 
   ionViewDidLoad() {
@@ -28,8 +29,21 @@ export class FindPasswordPage {
     this.navCtrl.pop({animation: 'md-transition', direction: 'back'});
   }
 
+  getVerifyCode(event){
+    // this.userService.SMS(phone, "1").then((value) => {
+      
+    // }).catch((error) => {
+    //   console.log(error);
+    // });
+  }
+
   confirm(event) {
     console.log('confirm find password');
+    // this.userService.resetPwd(phone, password, verifyCode).then((value) => {
+      
+    // }).catch((error) => {
+    //   console.log(error);
+    // });
   }
 
 }

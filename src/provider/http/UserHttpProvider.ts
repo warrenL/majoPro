@@ -3,6 +3,8 @@ import { Injectable, ApplicationRef } from '@angular/core';
 import { GlobalProvider } from '../GlobalProvider';
 
 import { HttpProvider } from "./base/HttpProvider";
+import { ValueTransformer } from '@angular/compiler/src/util';
+import { HttpException } from "../../exception/HttpException";
 
 /**
  * The provider class used to provide http api for user.
@@ -35,15 +37,23 @@ export class UserHttpProvider {
       let params = 'username=' + userName + '&password=' + password;
 
       return this.httpProvider.httpPostNoAuth(url, heads, params).then((value) => {
-        console.log("Response " + value);
-        if (value) {
-          return this.globalProvider.setLoginValue(value.token).then(() => {
-            return value;
+        console.log("Login success:--->" + value);
+        if (value.reCode == 200 && value.reMsg == "操作成功") {
+          return this.globalProvider.setLoginValue(value.data.token).then(() => {
+            return value.data;
           });
+        } else {
+          return value.reMsg;
         }
       }).catch((error) => {
         console.log(error);
+        this.handleError(error);
       });
+    }
+
+    private handleError(error: Response) {
+      console.error("http error - " + error);
+      throw new HttpException(error.status, "Http Request Error");
     }
     
     // 2.  注册
@@ -60,12 +70,14 @@ export class UserHttpProvider {
 
       return this.httpProvider.httpPostNoAuth(url, heads, params).then((value) => {
         console.log("Response " + value);
-        if (value) {
-          return true;
+        if (value.reCode == 200 && value.reMsg == "操作成功") {
+          return value.data;
+        } else {
+          return value.reMsg;
         }
       }).catch((error) => {
         console.log(error);
-        return false;
+        this.handleError(error);
       });
     }
     
@@ -80,12 +92,14 @@ export class UserHttpProvider {
 
       return this.httpProvider.httpPostNoAuth(url, heads, params).then((value) => {
         console.log("Response " + value);
-        if (value) {
-          return true;
+        if (value.reCode == 200 && value.reMsg == "操作成功") {
+          return value.data;
+        } else {
+          return value.reMsg;
         }
       }).catch((error) => {
         console.log(error);
-        return false;
+        this.handleError(error);
       });
     }
 
@@ -100,27 +114,29 @@ export class UserHttpProvider {
 
       return this.httpProvider.httpPostNoAuth(url, heads, params).then((value) => {
         console.log("Response " + value);
-        if (value) {
-          return this.globalProvider.setLoginValue(value.data.token).then(() => {
-            return value;
-          });
+        if (value.reCode == 200 && value.reMsg == "操作成功") {
+          return value.data;
+        } else {
+          return value.reMsg;
         }
       }).catch((error) => {
         console.log(error);
+        this.handleError(error);
       });
     }
 
     logout(): Promise<any> {
         return this.httpProvider.getTestResponse().toPromise()
         .then((res) => {
-          this.listData = res.json();
+          this.listData.push(res.json().data);
           // 数据格式请看log
-          console.log("listData------->",this.listData);
+          console.log("listData------->",this.listData[0].token);
           this.ref.tick();
           return this.listData;
          })
          .catch((err) => {
           console.log(err);
+          this.handleError(err);
          });
       // let url = "/users/logout";
       // let heads = {};
