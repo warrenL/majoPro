@@ -3,7 +3,6 @@ import { Nav, Platform } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { UserService } from '../provider/service/UserService';
-import { UploadService } from '../provider/service/UploadService';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,8 +17,7 @@ export class ClassroomAPP {
   constructor(public platform: Platform,
               public splashScreen: SplashScreen,
               public statusBar: StatusBar,
-              public userService: UserService,
-              public uploadService: UploadService) {
+              public userService: UserService) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -32,7 +30,6 @@ export class ClassroomAPP {
   }
 
   initializeApp() {
-    this.uploadService.startUpload();
 
     let EventUtil = {
       addHandler: function (element, type, handler) {
@@ -56,9 +53,6 @@ export class ClassroomAPP {
     };
 
     let that = this;
-    EventUtil.addHandler(window, 'online', function () {
-      that.uploadService.startUpload();
-    });
 
     this.userService.isLogin().then(isLogin => {
       if (isLogin) {

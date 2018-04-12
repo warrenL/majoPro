@@ -19,7 +19,6 @@ import { UserHttpProvider } from '../provider/http/UserHttpProvider';
 import { GroupItemHttpProvider } from '../provider/http/GroupItemHttpProvider';
 import { UserService } from '../provider/service/UserService';
 import { GroupItemService } from '../provider/service/GroupItemService';
-import { UploadService } from '../provider/service/UploadService';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Keyboard } from '@ionic-native/keyboard';
 import { ScreenOrientation } from "@ionic-native/screen-orientation";
@@ -62,7 +61,6 @@ import { NgCalendarModule } from 'ionic2-calendar';
     GroupItemHttpProvider,
     UserHttpProvider,
     GroupItemService,
-    UploadService,
     UserService
   ]
 })
