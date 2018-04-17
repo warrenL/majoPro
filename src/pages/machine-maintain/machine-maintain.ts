@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RepareService } from '../../provider/service/RepareService';
 
 /**
  * Generated class for the MachineMaintainPage page.
@@ -19,6 +20,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class MachineMaintainPage {
 
+  addr1: string = "";
+  addr2: string = "";
+  addr3: string = "";
+  addr4: string = "";
   top_segment: string = 'top_0';
   publishAllOrder = [
     {orderId:"8150715185029326699", orderName:"漆兵", orderType:"有一台麻将机需要找人维修", address: "湖北省 武汉市 东西湖区 金银湖街道", 
@@ -30,8 +35,13 @@ export class MachineMaintainPage {
   ];
   selectFilterByDays: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private repareService: RepareService) {
     this.selectFilterByDays = false;
+    this.repareService.repareOraders(this.addr1, this.addr2, this.addr3, this.addr4).then((value) => {
+      
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   ionViewDidLoad() {

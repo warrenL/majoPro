@@ -55,11 +55,11 @@ export class LoginRegisterPage {
   }
 
   login(event) {
-    this.userService.login(this.username, this.password).then((value) => {
+    // this.userService.login(this.username, this.password).then((value) => {
       this.navCtrl.push('main-board-page', null, {animation: 'md-transition', direction: 'forward'});
-    }).catch((error) => {
-      console.log(error);
-    });
+    // }).catch((error) => {
+    //   console.log(error);
+    // });
     
   }
 
