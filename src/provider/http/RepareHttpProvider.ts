@@ -37,10 +37,10 @@ export class RepareHttpProvider {
     //     参数:	addr1, addr2, addr3, addr4, token, orderType(0所有订单, 1维修订单, 2购买新机器订单, 3购买旧机器订单, 4租麻将机订单, 5安装麻将机或配件订单)
     //     返回:	orderNo, orderType(1维修订单, 2购买新机器订单, 3购买旧机器订单, 4租麻将机订单, 5安装麻将机或配件订单), 
     //       publisher, remark(描述), addr1, addr2, addr3, addr4, addr5, phone, publishDate, topFlag(1置顶,0不置顶)  
-    repareOraders(addr1: string, addr2: string, addr3: string, addr4: string): Promise<any> {
+    repareOraders(addr1: string, addr2: string, addr3: string, addr4: string, orderType: string): Promise<any> {
       let url = "api/repare/orders";
       let heads = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'};
-      let params = 'addr1=' + addr1 + '&addr2=' + addr2 + '&addr3=' + addr3 + '&addr4=' + addr4;
+      let params = 'addr1=' + addr1 + '&addr2=' + addr2 + '&addr3=' + addr3 + '&addr4=' + addr4 + "&orderType=" + orderType;
 
       return this.httpProvider.httpPostWithAuth(url, heads, params).then((value) => {
         console.log(value);

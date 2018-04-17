@@ -17,8 +17,10 @@ import { GroupItemRepoProvider } from '../provider/db/GroupItemRepoProvider';
 import { HttpProvider } from '../provider/http/base/HttpProvider';
 import { UserHttpProvider } from '../provider/http/UserHttpProvider';
 import { GroupItemHttpProvider } from '../provider/http/GroupItemHttpProvider';
+import { RepareHttpProvider } from '../provider/http/RepareHttpProvider';
 import { UserService } from '../provider/service/UserService';
 import { GroupItemService } from '../provider/service/GroupItemService';
+import { RepareService } from '../provider/service/RepareService';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Keyboard } from '@ionic-native/keyboard';
 import { ScreenOrientation } from "@ionic-native/screen-orientation";
@@ -60,7 +62,9 @@ import { NgCalendarModule } from 'ionic2-calendar';
     HttpProvider,
     GroupItemHttpProvider,
     UserHttpProvider,
+    RepareHttpProvider,
     GroupItemService,
+    RepareService,
     UserService
   ]
 })

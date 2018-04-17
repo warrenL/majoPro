@@ -35,13 +35,36 @@ export class MachineMaintainPage {
   ];
   selectFilterByDays: boolean;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private repareService: RepareService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public repareService: RepareService) {
     this.selectFilterByDays = false;
-    this.repareService.repareOraders(this.addr1, this.addr2, this.addr3, this.addr4).then((value) => {
+    // get all the repare orders list
+    this.repareService.repareOraders(this.addr1, this.addr2, this.addr3, this.addr4, "0").then((value) => {
       
     }).catch((error) => {
       console.log(error);
     });
+  }
+
+  segmentChanged(event) {
+    if (event.value == "top_0") {
+      // get all the repare orders list
+      this.repareService.repareOraders(this.addr1, this.addr2, this.addr3, this.addr4, "0").then((value) => {
+      
+      }).catch((error) => {
+        console.log(error);
+      });
+    } else if (event.value == "top_1") {
+
+    } else if (event.value == "top_2") {
+      // get my orders list
+      this.repareService.repareMyOrders("3").then((value) => {
+            
+      }).catch((error) => {
+        console.log(error);
+      });
+    } else if (event.value == "top_3") {
+
+    }
   }
 
   ionViewDidLoad() {
@@ -53,7 +76,12 @@ export class MachineMaintainPage {
   }
 
   filterByArea(event) {
-
+    // get orders list by address
+    this.repareService.repareOraders(this.addr1, this.addr2, this.addr3, this.addr4, "0").then((value) => {
+          
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   sendToTop(event) {

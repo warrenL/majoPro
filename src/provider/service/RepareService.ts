@@ -16,8 +16,8 @@ export class RepareService {
   constructor(public globalProvider: GlobalProvider, public repareHttpProvider: RepareHttpProvider) {
   }
 
-  repareOraders(addr1: string, addr2: string, addr3: string, addr4: string): Promise<any> {
-    return this.repareHttpProvider.repareOraders(addr1, addr2, addr3, addr4).then((value) => {
+  repareOraders(addr1: string, addr2: string, addr3: string, addr4: string, orderType: string): Promise<any> {
+    return this.repareHttpProvider.repareOraders(addr1, addr2, addr3, addr4, orderType).then((value) => {
       console.log("userService:---->"+value.status);
       if (value) {
         return value;
