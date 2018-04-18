@@ -56,7 +56,7 @@ export class MachineMaintainPage {
     } else if (event.value == "top_1") {
 
     } else if (event.value == "top_2") {
-      // get my orders list
+      // get my orders list ordertype = 3 means my orders
       this.repareService.repareMyOrders("3").then((value) => {
             
       }).catch((error) => {

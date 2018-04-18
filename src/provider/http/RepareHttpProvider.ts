@@ -131,12 +131,12 @@ export class RepareHttpProvider {
     //       addr1, addr2, addr3, addr4, addr5, phone, publisher
     //     返回:
     repareOrderEdit(orderNo: string, orderType: string, addr1: string, addr2: string,
-       addr3: string, addr4: string, phone: string, publisher: string): Promise<any> {
+       addr3: string, addr4: string, addr5: string, phone: string, publisher: string): Promise<any> {
       let url = "api/repare/orderEdit";
       let heads = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'};
       let params = 'orderNo=' + orderNo;
-      params = params + '&addr1=' + addr1 + '&addr2=' + addr2 + '&addr3=' + addr3 + '&addr4=' + addr4;
-      params = params + '&phone=' + phone + '&publisher' + publisher;
+      params = params + '&addr1=' + addr1 + '&addr2=' + addr2 + '&addr3=' + addr3 + '&addr4=' + addr4 + '&addr5=' + addr5;
+      params = params + '&phone=' + phone + '&publisher=' + publisher;
 
       return this.httpProvider.httpPostWithAuth(url, heads, params).then((value) => {
         console.log("Response " + value);

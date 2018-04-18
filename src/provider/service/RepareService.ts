@@ -67,8 +67,8 @@ export class RepareService {
   }
 
   repareOrderEdit(orderNo: string, orderType: string, addr1: string, addr2: string,
-    addr3: string, addr4: string, phone: string, publisher: string): Promise<any> {
-      return this.repareHttpProvider.repareOrderEdit(orderNo, orderType, addr1, addr2, addr3, addr4, phone, publisher).then((value) => {
+    addr3: string, addr4: string, addr5: string, phone: string, publisher: string): Promise<any> {
+      return this.repareHttpProvider.repareOrderEdit(orderNo, orderType, addr1, addr2, addr3, addr4, addr5, phone, publisher).then((value) => {
         if (value) {
           return value;
         }

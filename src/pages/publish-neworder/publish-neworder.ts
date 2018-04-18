@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RepareService } from '../../provider/service/RepareService';
 
 /**
  * Generated class for the PublishNeworderPage page.
@@ -18,9 +19,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class PublishNeworderPage {
   name: string;
   tel: string;
+  addr1: string;
+  addr2: string;
+  addr3: string;
+  addr4: string;
   addDetail: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public repareService: RepareService) {
   }
 
   ionViewDidLoad() {
@@ -32,7 +37,12 @@ export class PublishNeworderPage {
   }
 
   confirmPublish(event) {
-    this.navCtrl.pop({animation: 'md-transition', direction: 'back'});
+    // this.repareService.repareOrderEdit("","1",this.addr1, this.addr2, this.addr3, this.addr4, 
+    // this.addDetail, this.tel, this.name).then((value) => {
+      this.navCtrl.pop({animation: 'md-transition', direction: 'back'});
+    // }).catch((error) => {
+    //   console.log(error);
+    // });
   }
 
 }
