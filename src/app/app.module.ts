@@ -9,7 +9,6 @@ import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import { StatusBar } from '@ionic-native/status-bar';
 import { ClassroomAPP } from './app.component';
 import { GlobalIonicErrorHandler } from '../exception/GlobalIonicErrorHandler';
-import { MultiPickerModule } from 'ion-multi-picker';
 import { GlobalProvider } from '../provider/GlobalProvider';
 import { DBProvider } from '../provider/db/base/DBProvider';
 import { WebsqlDBProvider } from '../provider/db/base/WebsqlDBProvider';
@@ -21,28 +20,21 @@ import { RepareHttpProvider } from '../provider/http/RepareHttpProvider';
 import { UserService } from '../provider/service/UserService';
 import { GroupItemService } from '../provider/service/GroupItemService';
 import { RepareService } from '../provider/service/RepareService';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Keyboard } from '@ionic-native/keyboard';
-import { ScreenOrientation } from "@ionic-native/screen-orientation";
 import { PipesModule } from '../pipes/pipes.module';
-import { NgCalendarModule } from 'ionic2-calendar';
 
 @NgModule({
   declarations: [ClassroomAPP],
   imports: [
     // System Module
     BrowserModule,
-    BrowserAnimationsModule,
     HttpModule,
-    NgCalendarModule,
     IonicModule.forRoot(ClassroomAPP, {preloadModules: true, mode:"ios", backButtonText: '', tabsHideOnSubPages: true}),
     IonicStorageModule.forRoot({
       name: '__mydb',
       driverOrder: ['websql']
     }),
     // Custom Module
-    PipesModule,
-    MultiPickerModule //Import MultiPickerModule
+    PipesModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [ClassroomAPP],
@@ -52,8 +44,6 @@ import { NgCalendarModule } from 'ionic2-calendar';
     SplashScreen,
     File,
     SQLitePorter,
-    Keyboard,
-    ScreenOrientation,
     {provide: ErrorHandler, useClass: GlobalIonicErrorHandler},
     // Custom Provider
     GlobalProvider,

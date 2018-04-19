@@ -12,21 +12,11 @@ export class ClassroomAPP {
 
   rootPage: any = 'splash-screen-page';
 
-  pages: Array<{ title: string; component: string; icon: string }>;
-
   constructor(public platform: Platform,
               public splashScreen: SplashScreen,
               public statusBar: StatusBar,
               public userService: UserService) {
     this.initializeApp();
-
-    // used for an example of ngFor and navigation
-    this.pages = [
-      {title: 'Dashboard', component: 'dashboard-page', icon: 'assets/dashboard/home.png'},
-      {title: 'Attendance', component: 'tabs-page', icon: 'assets/dashboard/attendance.png'},
-      {title: 'Lessons', component: 'lessons-page', icon: 'assets/dashboard/lessons.png'},
-      {title: 'Communications', component: 'communications-page', icon: 'assets/dashboard/communications.png'}
-    ];
   }
 
   initializeApp() {
@@ -56,7 +46,7 @@ export class ClassroomAPP {
 
     this.userService.isLogin().then(isLogin => {
       if (isLogin) {
-        this.rootPage = 'dashboard-page';
+        this.rootPage = 'page-main-board';
       }
     });
 
@@ -66,11 +56,5 @@ export class ClassroomAPP {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
-  }
-
-  openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);
   }
 }
