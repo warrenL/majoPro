@@ -63,7 +63,7 @@
             </ion-item>
             <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
                 <ion-icon name="md-pin" item-start></ion-icon>
-                <ion-select [(ngModel)]="gender">
+                <!-- <ion-select [(ngModel)]="gender">
                     <ion-option value="f">Female</ion-option>
                     <ion-option value="m">Male</ion-option>
                 </ion-select>
@@ -78,7 +78,10 @@
                 <ion-select [(ngModel)]="gender">
                     <ion-option value="f">Female</ion-option>
                     <ion-option value="m">Male</ion-option>
-                </ion-select>
+                </ion-select> -->
+                <ion-multi-picker item-content (ionChange)="onLocationChange($event)" [multiPickerColumns]="cityColumns" [cancelText]="'取消'" [doneText]="'完成'">
+                    
+                </ion-multi-picker>
             </ion-item>
             <ion-item class="login-background" style="padding-left:15%;padding-right:15%;color:white;font-size:2rem;">
                 <ion-icon name="phone-portrait" item-start></ion-icon>

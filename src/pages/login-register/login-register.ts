@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../provider/service/UserService';
+import { CityDataProvider } from "../../providers/city-data/city-data";
+import { AddressItem } from '../../model/AddressItem';
 
 /**
  * Generated class for the LoginRegisterPage page.
@@ -19,10 +21,19 @@ import { UserService } from '../../provider/service/UserService';
 export class LoginRegisterPage {
   username: string = '';
   password: string = '';
+  jsonString: string = '';
+
+  registerAddress: AddressItem;
 
   authentication: string = '登录';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService) {
+  cityColumns: any[];
+
+  constructor(public navCtrl: NavController, 
+              public navParams: NavParams, 
+              public userService: UserService, 
+              public cityDataProvider: CityDataProvider) {
+    this.cityColumns = this.cityDataProvider.cities;
   }
 
   ionViewDidLoad() {
@@ -40,6 +51,12 @@ export class LoginRegisterPage {
     // }).catch((error) => {
     //   console.log(error);
     // });
+  }
+
+  onLocationChange(event) {
+    console.log("Selection location info: " + JSON.stringify(event));
+    this.registerAddress = new AddressItem(event[0].text,event[1].text,event[2].text,"","");
+    console.log(this.registerAddress);
   }
 
   getVerifyCode(event) {

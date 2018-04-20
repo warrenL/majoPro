@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RepareService } from '../../provider/service/RepareService';
+import { AddressItem } from '../../model/AddressItem';
 
 /**
  * Generated class for the MachineMaintainPage page.
@@ -24,6 +25,7 @@ export class MachineMaintainPage {
   addr2: string = "";
   addr3: string = "";
   addr4: string = "";
+
   top_segment: string = 'top_0';
   publishAllOrder = [
     {orderId:"8150715185029326699", orderName:"漆兵", orderType:"有一台麻将机需要找人维修", address: "湖北省 武汉市 东西湖区 金银湖街道", 
@@ -38,7 +40,7 @@ export class MachineMaintainPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, public repareService: RepareService) {
     this.selectFilterByDays = false;
     // get all the repare orders list
-    this.repareService.repareOraders(this.addr1, this.addr2, this.addr3, this.addr4, "0").then((value) => {
+    this.repareService.repareOraders(new AddressItem(this.addr1, this.addr2, this.addr3, this.addr4,""), "0").then((value) => {
       
     }).catch((error) => {
       console.log(error);
@@ -48,7 +50,7 @@ export class MachineMaintainPage {
   segmentChanged(event) {
     if (event.value == "top_0") {
       // get all the repare orders list
-      this.repareService.repareOraders(this.addr1, this.addr2, this.addr3, this.addr4, "0").then((value) => {
+      this.repareService.repareOraders(new AddressItem(this.addr1, this.addr2, this.addr3, this.addr4,""), "0").then((value) => {
       
       }).catch((error) => {
         console.log(error);
@@ -77,7 +79,7 @@ export class MachineMaintainPage {
 
   filterByArea(event) {
     // get orders list by address
-    this.repareService.repareOraders(this.addr1, this.addr2, this.addr3, this.addr4, "0").then((value) => {
+    this.repareService.repareOraders(new AddressItem(this.addr1, this.addr2, this.addr3, this.addr4,""), "0").then((value) => {
           
     }).catch((error) => {
       console.log(error);

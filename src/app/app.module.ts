@@ -7,6 +7,7 @@ import { File } from '@ionic-native/file';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SQLitePorter } from '@ionic-native/sqlite-porter';
 import { StatusBar } from '@ionic-native/status-bar';
+import { MultiPickerModule } from 'ion-multi-picker';
 import { ClassroomAPP } from './app.component';
 import { GlobalIonicErrorHandler } from '../exception/GlobalIonicErrorHandler';
 import { GlobalProvider } from '../provider/GlobalProvider';
@@ -21,12 +22,14 @@ import { UserService } from '../provider/service/UserService';
 import { GroupItemService } from '../provider/service/GroupItemService';
 import { RepareService } from '../provider/service/RepareService';
 import { PipesModule } from '../pipes/pipes.module';
+import { CityDataProvider } from '../providers/city-data/city-data';
 
 @NgModule({
   declarations: [ClassroomAPP],
   imports: [
     // System Module
     BrowserModule,
+    MultiPickerModule,
     HttpModule,
     IonicModule.forRoot(ClassroomAPP, {preloadModules: true, mode:"ios", backButtonText: '', tabsHideOnSubPages: true}),
     IonicStorageModule.forRoot({
@@ -55,7 +58,8 @@ import { PipesModule } from '../pipes/pipes.module';
     RepareHttpProvider,
     GroupItemService,
     RepareService,
-    UserService
+    UserService,
+    CityDataProvider
   ]
 })
 export class AppModule {

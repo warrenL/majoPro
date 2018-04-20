@@ -5,6 +5,7 @@ import { GlobalProvider } from '../GlobalProvider';
 import { HttpProvider } from "./base/HttpProvider";
 import { ValueTransformer } from '@angular/compiler/src/util';
 import { HttpException } from "../../exception/HttpException";
+import { AddressItem } from '../../model/AddressItem';
 
 /**
  * The provider class used to provide http api for user.
@@ -61,12 +62,15 @@ export class UserHttpProvider {
     //     参数:	name, phone, password, verifyCode, inviteCode, addr1, addr2, addr3, addr4
     //     返回:
     regist(name: string, phone: string, password: string, verifyCode: string, inviteCode: string, 
-      addr1: string, addr2: string, addr3: string, addr4: string): Promise<any> {
+      addressItem: AddressItem): Promise<any> {
       let url = "/api/users/regist";
       let heads = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'};
       let params = 'name=' + name + '&phone=' + phone + '&password=' + password;
       params = params + '&verifyCode=' + verifyCode + '&inviteCode=' + inviteCode;
-      params = params + '&addr1=' + addr1 + '&addr2=' + addr2 + '&addr3=' + addr3 + '&addr4=' + addr4;
+      params = params + '&addr1=' + addressItem.addr1 
+                      + '&addr2=' + addressItem.addr2 
+                      + '&addr3=' + addressItem.addr3 
+                      + '&addr4=' + addressItem.addr4;
 
       return this.httpProvider.httpPostNoAuth(url, heads, params).then((value) => {
         console.log("Response " + value);

@@ -5,6 +5,7 @@ import { GlobalProvider } from '../GlobalProvider';
 import { RepareHttpProvider } from '../http/RepareHttpProvider';
 
 import { HttpException } from "../../exception/HttpException";
+import { AddressItem } from '../../model/AddressItem';
 
 /**
  * The class used to provide service api for user.
@@ -16,9 +17,9 @@ export class RepareService {
   constructor(public globalProvider: GlobalProvider, public repareHttpProvider: RepareHttpProvider) {
   }
 
-  repareOraders(addr1: string, addr2: string, addr3: string, addr4: string, orderType: string): Promise<any> {
-    return this.repareHttpProvider.repareOraders(addr1, addr2, addr3, addr4, orderType).then((value) => {
-      console.log("userService:---->"+value.status);
+  repareOraders(addressItem: AddressItem, orderType: string): Promise<any> {
+    return this.repareHttpProvider.repareOraders(addressItem, orderType).then((value) => {
+      console.log("userService:---->"+value);
       if (value) {
         return value;
       }
@@ -55,8 +56,8 @@ export class RepareService {
     });
   }
 
-  repareOrderRemind(addr1: string, addr2: string, addr3: string, addr4: string, type: string): Promise<any> {
-    return this.repareHttpProvider.repareOrderRemind(addr1, addr2, addr3, addr4, type).then((value) => {
+  repareOrderRemind(addressItem: AddressItem, type: string): Promise<any> {
+    return this.repareHttpProvider.repareOrderRemind(addressItem, type).then((value) => {
       if (value) {
         return value;
       }
@@ -66,9 +67,8 @@ export class RepareService {
     });
   }
 
-  repareOrderEdit(orderNo: string, orderType: string, addr1: string, addr2: string,
-    addr3: string, addr4: string, addr5: string, phone: string, publisher: string): Promise<any> {
-      return this.repareHttpProvider.repareOrderEdit(orderNo, orderType, addr1, addr2, addr3, addr4, addr5, phone, publisher).then((value) => {
+  repareOrderEdit(orderNo: string, orderType: string, addressItem: AddressItem, phone: string, publisher: string): Promise<any> {
+      return this.repareHttpProvider.repareOrderEdit(orderNo, orderType, addressItem, phone, publisher).then((value) => {
         if (value) {
           return value;
         }

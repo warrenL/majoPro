@@ -5,6 +5,7 @@ import { GlobalProvider } from '../GlobalProvider';
 import { UserHttpProvider } from '../http/UserHttpProvider';
 
 import { HttpException } from "../../exception/HttpException";
+import { AddressItem } from '../../model/AddressItem';
 
 /**
  * The class used to provide service api for user.
@@ -58,9 +59,9 @@ export class UserService {
   }
 
   regist(name: string, phone: string, password: string, verifyCode: string, inviteCode: string, 
-    addr1: string, addr2: string, addr3: string, addr4: string): Promise<any> {
+    addressItem: AddressItem): Promise<any> {
     return this.userHttpProvider.regist(name, phone, password, verifyCode, 
-      inviteCode, addr1, addr2, addr3, addr4).then((value) => {
+      inviteCode, addressItem).then((value) => {
       if (value) {
         return value;
       }
