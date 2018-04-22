@@ -1,4 +1,4 @@
-import { Component, trigger, style, transition, animate, keyframes } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonicPage, MenuController, NavController, NavParams } from 'ionic-angular';
 
 /**

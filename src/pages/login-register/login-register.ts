@@ -44,6 +44,10 @@ export class LoginRegisterPage {
     console.log('Change segment');
   }
 
+  updateCucumber(event) {
+    
+  }
+
   register(event) {
     // this.userService.regist(name, phone, password, verifyCode, 
     //   inviteCode, addr1, addr2, addr3, addr4).then((value) => {

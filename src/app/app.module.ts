@@ -23,6 +23,8 @@ import { GroupItemService } from '../provider/service/GroupItemService';
 import { RepareService } from '../provider/service/RepareService';
 import { PipesModule } from '../pipes/pipes.module';
 import { CityDataProvider } from '../providers/city-data/city-data';
+import { Camera } from '@ionic-native/camera';
+import { FileTransfer } from '@ionic-native/file-transfer';
 
 @NgModule({
   declarations: [ClassroomAPP],
@@ -46,6 +48,8 @@ import { CityDataProvider } from '../providers/city-data/city-data';
     StatusBar,
     SplashScreen,
     File,
+    FileTransfer,
+    Camera,
     SQLitePorter,
     {provide: ErrorHandler, useClass: GlobalIonicErrorHandler},
     // Custom Provider
