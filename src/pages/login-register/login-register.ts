@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../provider/service/UserService';
-import { CityDataProvider } from "../../providers/city-data/city-data";
+import { AppConfig } from './../../app/app.config';
 import { AddressItem } from '../../model/AddressItem';
 
 /**
@@ -19,21 +19,28 @@ import { AddressItem } from '../../model/AddressItem';
   templateUrl: 'login-register.html',
 })
 export class LoginRegisterPage {
+  // login parameters
   username: string = '';
   password: string = '';
-  jsonString: string = '';
 
+  // register parameters
+  name: string = '';
+  phone: string = '';
+  regPassword: string = '';
+  verifyCode: string = '';
+  inviteCode: string = '';
+  againRegPassword: string = '';
   registerAddress: AddressItem;
+  // address parameter
+  cityColumns: any[];
 
   authentication: string = '登录';
 
-  cityColumns: any[];
-
   constructor(public navCtrl: NavController, 
               public navParams: NavParams, 
-              public userService: UserService, 
-              public cityDataProvider: CityDataProvider) {
-    this.cityColumns = this.cityDataProvider.cities;
+              public userService: UserService) {
+    // city json init
+    this.cityColumns = AppConfig.getcityDataProvider();
   }
 
   ionViewDidLoad() {
@@ -49,12 +56,12 @@ export class LoginRegisterPage {
   }
 
   register(event) {
-    // this.userService.regist(name, phone, password, verifyCode, 
-    //   inviteCode, addr1, addr2, addr3, addr4).then((value) => {
-    //   this.authentication = '登录';
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
+    this.userService.regist(this.name, this.phone, this.regPassword, this.verifyCode, 
+      this.inviteCode, this.registerAddress).then((value) => {
+      this.authentication = '登录';
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   onLocationChange(event) {
@@ -64,11 +71,11 @@ export class LoginRegisterPage {
   }
 
   getVerifyCode(event) {
-    // this.userService.SMS(phone, "1").then((value) => {
+    this.userService.SMS(this.phone, "1").then((value) => {
       
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   back(event) {

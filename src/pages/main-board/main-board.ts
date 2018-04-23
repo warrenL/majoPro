@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CityDataProvider } from "../../providers/city-data/city-data";
 
 /**
  * Generated class for the MainBoardPage page.
@@ -18,10 +17,8 @@ import { CityDataProvider } from "../../providers/city-data/city-data";
 })
 export class MainBoardPage {
 
-  cityColumns: any[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,public cityDataProvider: CityDataProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-    this.cityColumns = this.cityDataProvider.cities;
   }
 
   ionViewDidLoad() {

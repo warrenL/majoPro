@@ -18,6 +18,10 @@ import { UserService } from '../../provider/service/UserService';
 })
 export class FindPasswordPage {
 
+  phone: string = '';
+  password: string = '';
+  verifyCode: string = '';
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService) {
   }
 
@@ -30,20 +34,20 @@ export class FindPasswordPage {
   }
 
   getVerifyCode(event){
-    // this.userService.SMS(phone, "1").then((value) => {
+    this.userService.SMS(this.phone, "2").then((value) => {
       
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   confirm(event) {
     console.log('confirm find password');
-    // this.userService.resetPwd(phone, password, verifyCode).then((value) => {
+    this.userService.resetPwd(this.phone, this.password, this.verifyCode).then((value) => {
       
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
 }
