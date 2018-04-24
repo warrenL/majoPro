@@ -165,5 +165,113 @@ export class UserHttpProvider {
     //   });
     // }
 
+    // 18. 充值下单
+    //   地址:	api/users/charge
+    //   参数:	token, amount(充值金额,单位是分)
+    //   返回:	appid, body, noncestr, packageStr, partnerid, prepayid, sign, timeStamp, tradeNo
+    charge(amount: string): Promise<any> {
+      let url = "/api/users/charge";
+      let heads = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'};
+      let params = 'amount=' + amount;
 
+      return this.httpProvider.httpPostNoAuth(url, heads, params).then((value) => {
+        console.log("Response " + value);
+        if (value.reCode == 200 && value.reMsg == "操作成功") {
+          return value.data;
+        } else {
+          return value.reMsg;
+        }
+      }).catch((error) => {
+        console.log(error);
+        this.handleError(error);
+      });
+    }
+      
+    // 19. 查询充值状态
+    //   地址:	api/users/chargeStatus
+    //   参数:	token, tradeNo(充值订单号)
+    //   返回:	balance(余额)
+    chargeStatus(tradeNo: string): Promise<any> {
+      let url = "/api/users/chargeStatus";
+      let heads = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'};
+      let params = 'tradeNo=' + tradeNo;
+
+      return this.httpProvider.httpPostNoAuth(url, heads, params).then((value) => {
+        console.log("Response " + value);
+        if (value.reCode == 200 && value.reMsg == "操作成功") {
+          return value.data;
+        } else {
+          return value.reMsg;
+        }
+      }).catch((error) => {
+        console.log(error);
+        this.handleError(error);
+      });
+    }
+    
+    // 20. 我的邀请码
+    //   地址:	api/users/invitationCode
+    //   参数:	token
+    //   返回:	invitationCode(邀请码)
+    getInvitationCode(): Promise<any> {
+      let url = "/api/users/invitationCode";
+      let heads = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'};
+      let params;
+
+      return this.httpProvider.httpPostNoAuth(url, heads, params).then((value) => {
+        console.log("Response " + value);
+        if (value.reCode == 200 && value.reMsg == "操作成功") {
+          return value.data;
+        } else {
+          return value.reMsg;
+        }
+      }).catch((error) => {
+        console.log(error);
+        this.handleError(error);
+      });
+    }
+
+    // 21. 我的简历
+    //   地址:	api/users/resume
+    //   参数:	token
+    //   返回:	realName, phone, addr1, addr2, addr3, addr4, addr5
+    getResume(): Promise<any> {
+      let url = "/api/users/resume";
+      let heads = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'};
+      let params;
+
+      return this.httpProvider.httpPostNoAuth(url, heads, params).then((value) => {
+        console.log("Response " + value);
+        if (value.reCode == 200 && value.reMsg == "操作成功") {
+          return value.data;
+        } else {
+          return value.reMsg;
+        }
+      }).catch((error) => {
+        console.log(error);
+        this.handleError(error);
+      });
+    }
+
+    // 26. 用户签到
+    //   地址:	api/users/signin
+    //   参数:	token
+    //   返回:	
+    signin(): Promise<any> {
+      let url = "/api/users/signin";
+      let heads = {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'};
+      let params;
+
+      return this.httpProvider.httpPostNoAuth(url, heads, params).then((value) => {
+        console.log("Response " + value);
+        if (value.reCode == 200 && value.reMsg == "操作成功") {
+          return value.data;
+        } else {
+          return value.reMsg;
+        }
+      }).catch((error) => {
+        console.log(error);
+        this.handleError(error);
+      });
+    }
 }

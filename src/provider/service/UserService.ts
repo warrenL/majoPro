@@ -100,4 +100,59 @@ export class UserService {
       }
     })
   }
+
+    charge(amount: string): Promise<any> {
+      return this.userHttpProvider.charge(amount).then((value) => {
+        if (value) {
+          return value;
+        }
+      }).catch((error) => {
+        console.log(error);
+        this.handleError(error);
+      });
+    }
+
+    chargeStatus(tradeNo: string): Promise<any> {
+      return this.userHttpProvider.chargeStatus(tradeNo).then((value) => {
+        if (value) {
+          return value;
+        }
+      }).catch((error) => {
+        console.log(error);
+        this.handleError(error);
+      });
+    }
+    
+    getInvitationCode(): Promise<any> {
+      return this.userHttpProvider.getInvitationCode().then((value) => {
+        if (value) {
+          return value;
+        }
+      }).catch((error) => {
+        console.log(error);
+        this.handleError(error);
+      });
+    }
+
+    getResume(): Promise<any> {
+      return this.userHttpProvider.getResume().then((value) => {
+        if (value) {
+          return value;
+        }
+      }).catch((error) => {
+        console.log(error);
+        this.handleError(error);
+      });
+    }
+
+    signin(): Promise<any> {
+      return this.userHttpProvider.signin().then((value) => {
+        if (value) {
+          return value;
+        }
+      }).catch((error) => {
+        console.log(error);
+        this.handleError(error);
+      });
+    }
 }

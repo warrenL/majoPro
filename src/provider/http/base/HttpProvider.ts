@@ -11,7 +11,7 @@ import { GlobalProvider } from "../../GlobalProvider";
  */
 @Injectable()
 export class HttpProvider {
-  BASE_URL: string = "https://127.0.0.1";
+  BASE_URL: string = "https://127.0.0.1/";
   // CLIENT_KEY: string = "clientKey";
   // CLIENT_VALUE: string = "student-attendance";
   // DEVICE_ID_KEY: string = "deviceId";
