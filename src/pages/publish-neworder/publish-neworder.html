@@ -14,12 +14,12 @@
   <ion-row>
     <ion-col></ion-col>
     <ion-col>
-      <button ion-button round style="width: 100%;background-color:#66CCFF;color:#2e4553;" (click)="showOption($event)">有一台麻将机需要维修 ▼</button>
+      <button ion-button round style="width: 100%;background-color:#66CCFF;color:#2e4553;" (click)="showOption($event)">{{orderType}} ▼</button>
     </ion-col>
     <ion-col></ion-col>
   </ion-row>
   <ion-row>
-    <ion-col col-2>
+    <ion-col col-2 class="detal-text-first">
       <ion-label>姓名</ion-label>
     </ion-col>
     <ion-col col-8>
@@ -27,7 +27,7 @@
     </ion-col>
   </ion-row>
   <ion-row>
-    <ion-col col-2>
+    <ion-col col-2 class="detal-text-first">
       <ion-label>电话</ion-label>
     </ion-col>
     <ion-col col-8>
@@ -35,36 +35,24 @@
     </ion-col>
   </ion-row>
   <ion-row>
-    <ion-col col-4>
+    <ion-col col-4 class="detal-text">
       <ion-label>上门服务地址</ion-label>
     </ion-col>
     <ion-col col-8>
-      <ion-item style="font-size: 0.5rem;" no-line no-border>
-        <ion-select [(ngModel)]="privce" placeholder="省" style="color:black;">
-          <ion-option value="hubei">湖北省</ion-option>
-          <ion-option value="hunan">湖南省</ion-option>
-        </ion-select>
-        <ion-select [(ngModel)]="city" placeholder="市" style="color:black;">
-          <ion-option value="wuhan">武汉市</ion-option>
-          <ion-option value="xiangtan">湘潭市</ion-option>
-        </ion-select>
-        <ion-select [(ngModel)]="direct" placeholder="区" style="color:black;">
-          <ion-option value="dongxin">东新区</ion-option>
-          <ion-option value="kaifaqu">开发区</ion-option>
-        </ion-select>
-        <ion-select [(ngModel)]="town" placeholder="镇" style="color:black;">
-          <ion-option value="guanshan">关山大道</ion-option>
-          <ion-option value="guanggu">光谷大道</ion-option>
-        </ion-select>
+      <ion-item>
+        <ion-multi-picker item-content class="text-background-style" placeholder="请选择地址" (ionChange)="onLocationChange($event)" [multiPickerColumns]="cityColumns" [cancelText]="'取消'" [doneText]="'完成'">
+        </ion-multi-picker>
       </ion-item>
     </ion-col>
   </ion-row>
   <ion-row>
-    <ion-col col-4>
+    <ion-col col-4 class="detal-text">
       <ion-label>详细地址</ion-label>
     </ion-col>
     <ion-col col-8>
-      <ion-input placeholder="请输入详细地址" type="text" [(ngModel)]="addDetail" ></ion-input>
+      <ion-item>
+        <ion-input placeholder="请输入详细地址" type="text" [(ngModel)]="addDetail" ></ion-input>
+      </ion-item>
     </ion-col>
   </ion-row>
 </ion-content>

@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RepareService } from '../../provider/service/RepareService';
+import { AddressItem } from '../../model/AddressItem';
+import { AppConfig } from './../../app/app.config';
+import { AlertController } from 'ionic-angular';
 
 /**
  * Generated class for the PublishNeworderPage page.
@@ -24,8 +27,70 @@ export class PublishNeworderPage {
   addr3: string;
   addr4: string;
   addDetail: string;
+  orderType: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public repareService: RepareService) {
+  cityColumns: any[];
+  registerAddress: AddressItem;
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public repareService: RepareService, public alertCtrl: AlertController) {
+    // city json init
+    this.cityColumns = AppConfig.getcityDataProvider();
+    this.orderType = "有一台麻将机需要维修";
+  }
+
+  showRadio() {
+    let alert = this.alertCtrl.create();
+    alert.setTitle('订单类型选择');
+
+    alert.addInput({
+      type: 'radio',
+      label: '有一台麻将机需要维修',
+      value: '有一台麻将机需要维修',
+      checked: true
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: '购买一台新机器',
+      value: '购买一台新机器',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: '购买一台旧机器',
+      value: '购买一台旧机器',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: '租麻将机',
+      value: '租麻将机',
+      checked: false
+    });
+
+    alert.addInput({
+      type: 'radio',
+      label: '安装麻将机或配件',
+      value: '安装麻将机或配件',
+      checked: false
+    });
+
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'OK',
+      handler: data => {
+        this.orderType = data;
+      }
+    });
+    alert.present();
+  }
+
+  onLocationChange(event) {
+    console.log("Selection location info: " + JSON.stringify(event));
+    this.registerAddress = new AddressItem(event[0].text,event[1].text,event[2].text,"","");
+    console.log(this.registerAddress);
   }
 
   ionViewDidLoad() {
@@ -33,7 +98,7 @@ export class PublishNeworderPage {
   }
 
   showOption(event) {
-
+    this.showRadio();
   }
 
   confirmPublish(event) {
