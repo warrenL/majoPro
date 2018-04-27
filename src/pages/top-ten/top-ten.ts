@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { BrandService } from '../../provider/service/BrandService';
 
 /**
  * Generated class for the TopTenPage page.
@@ -17,7 +18,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TopTenPage {
   top_segment: string = 'top_0';
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public brandService: BrandService) {
+    this.brandService.getMyBrand().then((value) => {
+        
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  segmentChanged(event) {
+    if (event.value == "top_0") {
+      // get all the repare orders list
+      this.brandService.getMyBrand().then((value) => {
+        
+      }).catch((error) => {
+        console.log(error);
+      });
+    } else if (event.value == "top_1") {
+      this.brandService.getRankingBrand().then((value) => {
+        
+      }).catch((error) => {
+        console.log(error);
+      });
+    } else if (event.value == "top_2") {
+      //
+    }
   }
 
   ionViewDidLoad() {

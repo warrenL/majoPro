@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { BrandService } from '../../provider/service/BrandService';
 
 /**
  * Generated class for the InstructionEditPage page.
@@ -16,8 +17,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'instruction-edit.html',
 })
 export class InstructionEditPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  editText: string = "";
+  brandId: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public brandService: BrandService) {
+    
   }
 
   ionViewDidLoad() {
@@ -25,6 +28,10 @@ export class InstructionEditPage {
   }
 
   save(event) {
-
+    this.brandService.updateBrand(this.editText, this.brandId).then((value) => {
+      
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 }

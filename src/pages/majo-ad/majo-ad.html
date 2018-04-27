@@ -9,7 +9,7 @@
     <ion-title style="text-align:center;font-size: 1.5rem;">麻将机行业广告区</ion-title>
   </ion-navbar>
   <ion-toolbar>
-    <ion-segment mode="md" class="top_segment" [(ngModel)]="top_segment">
+    <ion-segment mode="md" class="top_segment" [(ngModel)]="top_segment" (ionChange)="segmentChanged($event)">
       <ion-segment-button value="top_0">
         广告大厅
       </ion-segment-button>
@@ -145,7 +145,7 @@
     </ion-card>
     <ion-row>
         <ion-col style="text-align:center;">
-          <button ion-button round style="width:80%;background-color:#66CCFF;color:#2e4553;">发布</button>
+          <button ion-button round style="width:80%;background-color:#66CCFF;color:#2e4553;" (click)="publish($event)">发布</button>
         </ion-col>
       </ion-row>
   </ion-content>

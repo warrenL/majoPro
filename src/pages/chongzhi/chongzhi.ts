@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserService } from '../../provider/service/UserService';
 
 /**
  * Generated class for the ChongzhiPage page.
@@ -17,11 +18,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ChongzhiPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  tradeNo: string = '';
+  amount: string = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService) {
+    this.userService.chargeStatus(this.tradeNo).then((value) => {
+      
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ChongzhiPage');
   }
 
+  chongzhi(event) {
+    this.userService.charge(this.amount).then((value) => {
+      
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 }

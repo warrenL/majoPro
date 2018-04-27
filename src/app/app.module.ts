@@ -25,6 +25,14 @@ import { PipesModule } from '../pipes/pipes.module';
 import { CityDataProvider } from '../providers/city-data/city-data';
 import { Camera } from '@ionic-native/camera';
 import { FileTransfer } from '@ionic-native/file-transfer';
+import { BrandService } from '../provider/service/BrandService';
+import { BrandHttpProvider } from '../provider/http/BrandHttpProvider';
+import { AdvService } from '../provider/service/AdvService';
+import { AdvHttpProvider } from '../provider/http/AdvHttpProvider';
+import { NoticeHttpProvider } from '../provider/http/NoticeHttpProvider';
+import { NoticeService } from '../provider/service/NoticeService';
+import { MyMessageHttpProvider } from '../provider/http/MyMessageHttpProvider';
+import { MyMessageService } from '../provider/service/MyMessageService';
 
 @NgModule({
   declarations: [ClassroomAPP],
@@ -60,9 +68,17 @@ import { FileTransfer } from '@ionic-native/file-transfer';
     GroupItemHttpProvider,
     UserHttpProvider,
     RepareHttpProvider,
+    BrandHttpProvider,
+    AdvHttpProvider,
+    NoticeHttpProvider,
+    MyMessageHttpProvider,
     GroupItemService,
     RepareService,
+    BrandService,
     UserService,
+    AdvService,
+    NoticeService,
+    MyMessageService,
     CityDataProvider
   ]
 })

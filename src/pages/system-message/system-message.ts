@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NoticeService } from '../../provider/service/NoticeService';
 
 /**
  * Generated class for the SystemMessagePage page.
@@ -16,12 +17,25 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'system-message.html',
 })
 export class SystemMessagePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  noticeId: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public noticeService: NoticeService) {
+    this.noticeService.getAllMessageList().then((value) => {
+        
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SystemMessagePage');
+  }
+
+  DetailMessageContent(event) {
+    this.noticeService.getMessageContent(this.noticeId).then((value) => {
+        
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
 }

@@ -11,8 +11,8 @@ import { HttpException } from "../../exception/HttpException";
  *
  */
 @Injectable()
-export class AdHttpProvider {
-    constructor (private httpProvider: HttpProvider, private globalProvider: GlobalProvider, private ref: ApplicationRef) {
+export class AdvHttpProvider {
+    constructor (private httpProvider: HttpProvider, private globalProvider: GlobalProvider) {
 
     }
 

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { UserService } from '../../provider/service/UserService';
 
 /**
  * Generated class for the ResumePage page.
@@ -17,7 +18,12 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ResumePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public userService: UserService) {
+    this.userService.getResume().then((value) => {
+      
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   ionViewDidLoad() {

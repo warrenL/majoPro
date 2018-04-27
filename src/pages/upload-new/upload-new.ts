@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
+import { BrandService } from '../../provider/service/BrandService';
 
 /**
  * Generated class for the UploadNewPage page.
@@ -25,15 +26,26 @@ export class UploadNewPage {
     {big:"https://ss0.bdstatic.com/9bA1vGfa2gU2pMbfm9GUKT-w/timg?wisealaddin&sec=1521733197&di=a037aab61bcb3e989fd692e81723a0f2&size=w120&quality=100&imgtype=3&src=http%3A%2F%2Fbos.pgzs.com%2Fitunesimg%2F382201985%2F85%2F010300782f3a45f289fa04f4ba1c96ca_512x512bb.jpg"},
     {big: this.addLinkString}
   ];
+  image: string;
+  brandName: string;
   constructor(public navCtrl: NavController, 
               public navParams: NavParams,
               private camera: Camera,
               private transfer: FileTransfer,
-              private file: File) {
+              private file: File,
+              public brandService: BrandService) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad UploadNewPage');
+  }
+
+  submit(event) {
+    this.brandService.uploadNewBrand(this.brandName, this.image).then((value) => {
+        
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   addNewPic($event,imgString: string) {

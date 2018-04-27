@@ -42,17 +42,14 @@
             <!-- <ion-item no-lines no-padding class="login-background"> -->
             <ion-grid>
                 <ion-row>
-                    <ion-col style="text-align: center;">
-                        <ion-item no-lines no-padding class="login-background" > 
-                            <ion-checkbox [(ngModel)]="cucumber" (ionChange)="updateCucumber()" class="label label-md" style="padding-left:15%;color:white;font-size:1rem;"></ion-checkbox>
-                            <ion-label class="label label-md" style="color:white;font-size:1.5rem;">记住密码</ion-label>
-                        </ion-item>
+                    <ion-col style="text-align: right;" col-3>
+                        <ion-checkbox [(ngModel)]="cucumber" (ionChange)="updateCucumber()" class="label label-md" style="padding-left:15%;color:white;font-size:1rem;"></ion-checkbox>
                     </ion-col>
-                    <!-- </ion-item> -->
-                    <ion-col style="text-align: center;">
-                        <ion-item no-lines no-padding class="login-background"> 
-                            <ion-label tappable (click)="findPassword($event)"><a style="padding-left:15%;color:yellow;font-size:1.5rem;">忘记密码？</a></ion-label>
-                        </ion-item>
+                    <ion-col style="text-align: left;;" col-4>  
+                        <ion-label style="color:white;font-size:1.5rem;">记住密码</ion-label>
+                    </ion-col>
+                    <ion-col style="text-align: center;" col-4>
+                        <ion-label tappable (click)="findPassword($event)"><a style="padding-left:15%;color:yellow;font-size:1.5rem;">忘记密码？</a></ion-label>
                     </ion-col>
                 </ion-row>
             </ion-grid>

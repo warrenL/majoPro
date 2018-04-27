@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AdvService } from '../../provider/service/AdvService';
 
 /**
  * Generated class for the MajoAdPage page.
@@ -48,7 +49,48 @@ export class MajoAdPage {
     {name:"浙江杭州雀友机电有限公司",amount:"15",level:"2",status:"下架"},
   ];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  keyword: string = '';
+
+  advert: string;
+  company: string;
+  price: string;
+  adTag: string;
+  imagesList: string;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public advService: AdvService) {
+    this.advService.getAllAd('').then((value) => {
+        
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
+
+  segmentChanged(event) {
+    if (event.value == "top_0") {
+      // get all the repare orders list
+      this.advService.getAllAd(this.keyword).then((value) => {
+        
+      }).catch((error) => {
+        console.log(error);
+      });
+    } else if (event.value == "top_1") {
+      
+    } else if (event.value == "top_2") {
+      this.advService.getMyAd(this.keyword).then((value) => {
+        
+      }).catch((error) => {
+        console.log(error);
+      });
+    } else if (event.value == "top_3") {
+
+    }
+  }
+
+  publish(event) {
+    this.advService.publishAd(this.advert, this.company, this.price, this.adTag, this.imagesList).then((value) => {
+        
+    }).catch((error) => {
+      console.log(error);
+    });
   }
 
   ionViewDidLoad() {

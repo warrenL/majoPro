@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { GlobalProvider } from '../GlobalProvider';
 
-import { AdHttpProvider } from '../http/adHttpProvider';
+import { AdvHttpProvider } from '../http/AdvHttpProvider';
 
 import { HttpException } from "../../exception/HttpException";
 
@@ -11,9 +11,9 @@ import { HttpException } from "../../exception/HttpException";
  *
  */
 @Injectable()
-export class AdService {
+export class AdvService {
 
-  constructor(public globalProvider: GlobalProvider, public adHttpProvider: AdHttpProvider) {
+  constructor(public globalProvider: GlobalProvider, public advHttpProvider: AdvHttpProvider) {
   }
 
     private handleError(error: Response) {
@@ -22,7 +22,7 @@ export class AdService {
     }
 
     getAllAd(keyword: string): Promise<any> {
-        return this.adHttpProvider.getAllAd(keyword).then((value) => {
+        return this.advHttpProvider.getAllAd(keyword).then((value) => {
             console.log(value);
             return value;
         }).catch((error) => {
@@ -32,7 +32,7 @@ export class AdService {
     }
 
     getMyAd(keyword: string): Promise<any> {
-        return this.adHttpProvider.getMyAd(keyword).then((value) => {
+        return this.advHttpProvider.getMyAd(keyword).then((value) => {
             console.log(value);
             return value;
         }).catch((error) => {
@@ -42,7 +42,7 @@ export class AdService {
     }
 
     EditAd(advert: string, company: string, price: string, adTag: string, status: string): Promise<any> {
-        return this.adHttpProvider.EditAd(advert, company, price, adTag, status).then((value) => {
+        return this.advHttpProvider.EditAd(advert, company, price, adTag, status).then((value) => {
             console.log(value);
             return value;
         }).catch((error) => {
@@ -52,7 +52,7 @@ export class AdService {
     }
 
     publishAd(advert: string, company: string, price: string, adTag: string, images: string): Promise<any> {
-        return this.adHttpProvider.publishAd(advert, company, price, adTag, images).then((value) => {
+        return this.advHttpProvider.publishAd(advert, company, price, adTag, images).then((value) => {
             console.log(value);
             return value;
         }).catch((error) => {
